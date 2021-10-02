@@ -2,22 +2,22 @@
 
 ### Folder Setup
 
-[-Components](./components)
+[- Components](./components)
 Used to store reusable components
 
-[-db](./db)
+[- db](./db)
 Folder contains mysql db configurations. We can use this folder to store table level setup configuration. I have placed the [user table create](./db/user.sql) file and will continue placing these files in this directory.
 
-[-lib](./lib) 
+[- lib](./lib) 
 Folder contains our helper functions in which we will use to connect frontend & backend
 
-[-node modules](./node_modules)
+[- node modules](./node_modules)
 Package dependencies needed in applications
 
-[-pages](./pages)
+[- pages](./pages)
 Contains front end and back end routing. This folder contains and API folder which will be used only for backend api routes
 
-[-styles](./styles)
+[- styles](./styles)
 Contains sass and css files which we can use to style the application. I have created a [global varibable sheet](./styles/scss/variables.scss) with a bootstrap color override. I have modified the primary and secondary colors with the main colors from the website. Now we can use ``` classname="bg-primary" ``` syntax to quickly style components. 
 
 **Example**
@@ -45,9 +45,9 @@ Contains dependency information such as version ect.
 
 ### Deploying To Heroku
 
-Deploying with Heroku shouldn't be to complicated
-We will need have Rhett create a account.
-Add environment variables in Heroku
+Deploying with Heroku shouldn't be to complicated.
+We will need have Rhett create a account
+and Add environment variables in Heroku.
 
 Reference Links:
 [Deployment To Heroku](https://mariestarck.com/deploy-your-next-js-app-to-heroku-in-5-minutes/)
@@ -69,6 +69,7 @@ Reference Links:
 - Import [Db Files To Create Tables](./db)
 - Clone repository to local machine
 - cd into directory
+- ```npm i ``` to install dependencies
 - run ``` npm run dev ```
 
 
