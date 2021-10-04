@@ -29,7 +29,10 @@
 - [ ] Setup Stripe Workflow
 
 ### Sendgrid Setup
-- [ ] Create Email Notification Setup
+- [x] Create Email Notification Setup
+
+### Twilio Setup
+- [x] Ability to send text message remiders setup
 
 
 
