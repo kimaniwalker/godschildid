@@ -20,9 +20,10 @@
 - [x] Login Page With Basic Auth
 - [x] Register Page
 - [x] Get Logged In User Session 
-- [ ] Determine A Suitable 2FA Workflow 
-- [ ] Integrate Twilio to send text messages
-- [ ] Integrate Sendgrid for users who opt in to email 2FA
+- [x] Password Reset Setup
+- [x] Determine A Suitable 2FA Workflow 
+- [x] Integrate Twilio to send text messages
+- [x] Integrate Sendgrid for users who opt in to email 2FA
 
 ### Stripe Setup
 - [ ] Setup Stripe Workflow

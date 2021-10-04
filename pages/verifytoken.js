@@ -1,45 +1,36 @@
-import { useState } from 'react'
+import React from 'react'
 import Router from 'next/router'
+import { useRouter } from 'next/router'
 import { useUser } from '../lib/hooks'
 import Layout from '../components/layout'
-import Form from '../components/form'
+import AuthForm from '../components/authform'
 
-const Login = () => {
+export default function Verifytoken() {
   useUser({ redirectTo: '/', redirectIfFound: true })
+  const router = useRouter()
+  const [errorMsg, setErrorMsg] = React.useState('')
 
-  const [errorMsg, setErrorMsg] = useState('')
-  const [usersession, setuserSession] = useState([])
 
-  async function handleSubmit(e) {
+  const handleSubmit = async(e) => {
     e.preventDefault()
 
     if (errorMsg) setErrorMsg('')
 
     const body = {
-      username: e.currentTarget.username.value,
-      password: e.currentTarget.password.value,
+      code: e.currentTarget.authcode.value,
+      username: router.query.username
     }
 
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch(`/api/auth/twofactorverify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
       if (res.status === 200) {
-        const userSession = await res.json()
-        setuserSession(userSession)
-
-        if (!userSession.user.auth) {
-          console.log('User Does Not Have 2FA Enabled Give Them A Cookie')
-          console.log(userSession.user.auth)
-          Router.push('/')
-        } else {
-          console.log('User has 2FA Enabled')
-          Router.push(`/verifytoken?username=${userSession.user.username}`)
-        }
-
-
+        const user = await res.json()
+        console.log(user)
+        Router.push('/')
         
       } else {
         throw new Error(await res.text())
@@ -53,7 +44,7 @@ const Login = () => {
   return (
     <Layout>
       <div className="login">
-        <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />
+        <AuthForm errorMessage={errorMsg} onSubmit={handleSubmit} />
       </div>
       <style jsx>{`
         .login {
@@ -68,4 +59,3 @@ const Login = () => {
   )
 }
 
-export default Login
