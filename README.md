@@ -31,12 +31,16 @@ Will store environment variables which will be hidden from GIT. You will need to
 Authentication and MySQL environment variables
 
 ```
-TOKEN_SECRET="this-is-a-secret-value-with-at-least-32-characters"
-MYSQL_HOST="localhost"
-MYSQL_PORT="3306"
-MYSQL_DATABASE="=****"
-MYSQL_USER="****"
-MYSQL_PASSWORD="****"
+TOKEN_SECRET="**********"
+MYSQL_HOST="************"
+MYSQL_PORT="*******"
+MYSQL_DATABASE="*******"
+MYSQL_USER="******"
+MYSQL_PASSWORD="*******"
+STRIPESKTST="*****"
+TWILIO_ACCOUNT_SID="******"
+TWILIO_AUTH_TOKEN="********"
+SENDGRID="*******"
 
 ```
 
