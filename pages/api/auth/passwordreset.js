@@ -1,4 +1,4 @@
-import { resetpassword, validatePassword } from "../../../lib/user"
+import { resetpassword } from "../../../lib/user"
 import { findUser } from "../../../lib/user"
 
 export default async function passwordreset(req, res) {
@@ -6,12 +6,9 @@ export default async function passwordreset(req, res) {
 
         let user = await findUser({ username: req.body.username })
         
-        let password = req.body.password
-        
-        
-        if (user && validatePassword(user, password)) {
+        if (user) {
             
-            let results = await resetpassword({password: req.body.newpassword ,username: user.username})
+            let results = await resetpassword({password: req.body.password ,username: user.username})
             res.status(200).send({ results })
 
         } else {

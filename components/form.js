@@ -21,7 +21,10 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
       {isLogin ? (
         <>
           <Link href="/signup">
-            <a>I don't have an account</a>
+            <a>Register</a>
+          </Link>
+          <Link href="/forgotpassword">
+            <a>Forgot password</a>
           </Link>
           <button type="submit">Login</button>
         </>
@@ -42,6 +45,7 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
       label {
         display: flex;
         flex-flow: column;
+        
       }
       label > span {
         font-weight: 600;
