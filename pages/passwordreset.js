@@ -5,12 +5,12 @@ import { useRouter } from 'next/router'
 
 export default function Passwordreset(props) {
 
-
+    const [username, setusername] = React.useState('')
     const [newpassword, setnewpassword] = React.useState('')
     const [confirmpassword, setconfirmpassword] = React.useState('')
     const [errmsg, seterrmsg] = React.useState('')
     const router = useRouter()
-
+    
     const hanldeSubmit = async (e) => {
         e.preventDefault()
 
@@ -59,14 +59,14 @@ export default function Passwordreset(props) {
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" />
+                        <input onChange={(e) => setnewpassword(e.target.value)} type="password" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div id="passwordHelpBlock" class="form-text mb-3">
                         Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" />
+                        <input onChange={(e) => setconfirmpassword(e.target.value)} type="password" class="form-control" id="exampleInputPassword1" />
                     </div>
                     {!errmsg ? null : <div class="mb-3 text-danger">
                         {errmsg}
