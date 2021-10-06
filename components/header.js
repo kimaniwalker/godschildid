@@ -1,66 +1,82 @@
 import Link from 'next/link'
 import { useUser } from '../lib/hooks'
+import Topheader from './topheader'
 
 const Header = () => {
   const user = useUser()
 
   return (
-    <header>
-      <nav>
-        <ul>
+    <>
+    <Topheader />
+    <header className="bg-primary2 justify-content-center d-flex sticky-top">
+      
+        <ul className="align-items-center">
           <li>
             <Link href="/">
               <a>Home</a>
             </Link>
           </li>
-          {user ? (
-            <>
-              <li>
-                <Link href="/profile">
-                  <a>Profile</a>
-                </Link>
-              </li>
-              <li>
-                <a href="/api/auth/logout">Logout</a>
-              </li>
-            </>
-          ) : (
-            <li>
-              <Link href="/login">
-                <a>Login</a>
-              </Link>
-            </li>
-          )}
+          <li>
+            <Link href="/mypage">
+              <a>My Page</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/links">
+              <a>Important Links</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/signup">
+              <a>Sign Up</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about">
+              <a>About Us</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact">
+              <a>Contact Us</a>
+            </Link>
+          </li>
+          {user ?
+          <>
+          <li>
+            <Link href="/api/auth/logout">
+              <a>Logout</a>
+            </Link>
+          </li>
+          </> : <>
+          <li>
+            <Link href="/login">
+              <a>Login</a>
+            </Link>
+          </li>
+          </>  }
         </ul>
-      </nav>
       <style jsx>{`
-        nav {
-          max-width: 42rem;
-          margin: 0 auto;
-          padding: 0.2rem 1.25rem;
-        }
+        
         ul {
           display: flex;
           list-style: none;
-          margin-left: 0;
-          padding-left: 0;
         }
         li {
-          margin-right: 1rem;
+         
+          margin: 10px 20px;
+          
+          
         }
-        li:first-child {
-          margin-left: auto;
-        }
+        
         a {
           color: #fff;
           text-decoration: none;
         }
-        header {
-          color: #fff;
-          background-color: #333;
-        }
+        
       `}</style>
     </header>
+    </>
   )
 }
 

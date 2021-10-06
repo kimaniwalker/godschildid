@@ -34,7 +34,7 @@ export default function Stripesetup({ user }) {
 
     return (
         <>
-            <button onClick={handleStripe} className="btn btn-primary">Stripe Signup</button>
+            <button onClick={handleStripe} className="btn btn-primary w-100">Stripe Signup</button>
         </>
     )
 }

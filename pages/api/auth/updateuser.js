@@ -1,6 +1,6 @@
 import { updateUser } from "../../../lib/user";
 
-export default async function Updateuser(props) {
+export default async function Updateuser(req, res) {
 
 
 

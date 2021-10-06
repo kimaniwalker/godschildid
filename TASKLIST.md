@@ -26,7 +26,7 @@
 - [x] Integrate Sendgrid for users who opt in to email 2FA
 
 ### Stripe Setup
-- [ ] Setup Stripe Workflow
+- [x] Setup Stripe Workflow
 
 ### Sendgrid Setup
 - [x] Create Email Notification Setup
