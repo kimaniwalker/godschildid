@@ -18,7 +18,7 @@ export default function Profilecard(props) {
                         <div class="card-body">
                             <h5 class="card-title">{props.title}</h5>
                             <p class="card-text">{props.body}</p>
-                            <div className="w-100">{props.stripe}</div>
+                            <div className="w-100">{props.link}</div>
                         </div>
                     </div>
                 </div>
