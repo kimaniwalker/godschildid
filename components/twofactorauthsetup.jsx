@@ -9,14 +9,42 @@ export default function Twofactorauthsetup({ user }) {
     const [phonenumber, setphonenumber] = React.useState(user.phone)
     const [errmessage, seterrmsg] = React.useState('')
     const [enabled, setenabled] = React.useState(null)
+    const [render, setrender] = React.useState('')
+
 
     React.useEffect(() => {
+
+
+
         if (!user.auth) {
             setenabled(false)
         } else {
             setenabled(true)
+
+            let toggle = document.getElementById("flexSwitchCheckDefault")
+            let emailcheckbox = document.getElementById("emailcheckbox")
+            let phonecheckbox = document.getElementById("phonecheckbox")
+
+            if (toggle) {
+                document.getElementById("flexSwitchCheckDefault").checked = true
+            } else {
+                setrender(true)
+            }
+
+            if (emailcheckbox && user.auth === 'email') {
+                document.getElementById("emailcheckbox").checked = true
+            } else  {
+                setrender(true)
+            }
+
+            if (phonecheckbox && user.auth === 'phone') {
+                document.getElementById("phonecheckbox").checked = true
+                setphone(true)
+            } else {
+                setrender(true)
+            }
         }
-    }, [])
+    }, [render])
 
     const handletoggle = async () => {
 

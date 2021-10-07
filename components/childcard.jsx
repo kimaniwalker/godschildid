@@ -5,7 +5,7 @@ export default function Childcard(props) {
 
     return (
         <>
-            <div class="card w-50">
+            <div class="card w-100">
 
                 <div class="card-body">
                     <div className="row">
