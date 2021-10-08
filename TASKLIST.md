@@ -10,11 +10,11 @@
 
 ### Pages
 - [ ] Home Page
-- [ ] About Page
-- [ ] Important Links Page 
-- [ ] FAQ Page 
-- [ ] Contact Page
-- [ ] Profile Page
+- [x] About Page
+- [x] Important Links Page 
+- [x] FAQ Page 
+- [x] Contact Page
+- [x] Profile Page
 
 ### 2FA Authentication
 - [x] Login Page With Basic Auth
