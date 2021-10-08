@@ -1,0 +1,12 @@
+#bannercontainer {
+    height: 50vh;
+    background-size: cover;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    background-image: url(../../assets/family_blue_banner.jpg);
+}
+
+#bottombanner {
+    height: 2vh;
+}

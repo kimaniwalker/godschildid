@@ -11,9 +11,9 @@ const Layoutfull = (props) => (
     <Header />
 
     <main>
-      <div className="container-fluid">{props.children}</div>
+      <div className="container-fluid p-0 m-0">{props.children}</div>
     </main>
-    
+
 
     <style jsx global>{`
       *,

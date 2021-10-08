@@ -1,12 +1,16 @@
 import { useUser } from '../lib/hooks'
-import Layout from '../components/layout'
+import Layoutfull from '../components/layoutfull'
+import Homebanner from '../components/homebanner'
+import Homebanner2 from '../components/homebanner2'
 
 const Home = () => {
   const user = useUser()
 
   return (
-    <Layout>
-      <h1 className="text-primary">GodsChildId</h1>
+    <Layoutfull>
+      <Homebanner2 />
+      <Homebanner />
+      {/* <h1 className="text-primary">GodsChildId</h1>
 
       <p>Steps to test the example:</p>
 
@@ -27,7 +31,7 @@ const Home = () => {
           <p>Currently logged in as:</p>
           <pre>{JSON.stringify(user, null, 2)}</pre>
         </>
-      )}
+      )} */}
 
       <style jsx>{`
         li {
@@ -38,7 +42,7 @@ const Home = () => {
           word-wrap: break-word;
         }
       `}</style>
-    </Layout>
+    </Layoutfull>
   )
 }
 
