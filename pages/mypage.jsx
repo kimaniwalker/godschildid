@@ -1,30 +1,74 @@
 import React from 'react'
 import Childcard from '../components/childcard'
 import Layoutfull from '../components/layoutfull'
+import { useUser } from '../lib/hooks'
 
 export default function Mypage(props) {
-    
+    const user = useUser({ redirectTo: '/login' })
+    const [children, setchildren] = React.useState([])
+    const [errormsg, seterrormsg] = React.useState('')
+
+    React.useEffect(() => {
+        if (!user) {
+            return;
+        } else {
+            getChildren()
+        }
+
+    }, [user])
+
+    const getChildren = async () => {
+
+        let body = {
+            parentid: user.id
+        }
+
+        try {
+            const res = await fetch(`/api/children/mykids`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+            })
+            if (res.status === 200) {
+                const session = await res.json()
+                console.log(session)
+                setchildren(session.mykids)
+
+            } else {
+                throw new Error(await res.text())
+            }
+        } catch (error) {
+            console.error('An unexpected error happened occurred:', error)
+            seterrormsg(error.message)
+
+        }
+    }
 
     return (
         <>
-        <Layoutfull>
-            <div className="row p-5">
-                <div className="col-4">
-                 <Childcard first_name="Kimani" last_name="Walker" height="5\'2" weight="135" gender="Male" dob="10-15-1994" age="27" hair="black" eyes="brown" medical_conditions="No existing medical conditions" marks="Large tatoo on right arm and chest" image="https://daisybeattyphotography.com/wp-content/uploads/2015/09/15-1790-post/head-shots-for-kids-new-york-daisy-beatty(pp_w768_h915).jpg"/>   
+            <Layoutfull>
+                {children ? <div class="card-group">
+                    <div className="row p-5 g-4 m-3">
+
+                        {children.map((child => (
+                            <div key={child.id} className="col-4">
+
+                                <Childcard child={child} />
+
+                            </div>
+                        )))}
+
+
+                    </div>
                 </div>
-                <div className="col-4">
-                 <Childcard first_name="Kimani" last_name="Walker" height="5\'2" weight="135" gender="Male" dob="10-15-1994" age="27" hair="black" eyes="brown" medical_conditions="No existing medical conditions" marks="Large tatoo on right arm and chest" image="https://daisybeattyphotography.com/wp-content/uploads/2015/09/15-1790-post/head-shots-for-kids-new-york-daisy-beatty(pp_w768_h915).jpg"/>   
-                </div>
-                <div className="col-4">
-                 <Childcard first_name="Kimani" last_name="Walker" height="5\'2" weight="135" gender="Male" dob="10-15-1994" age="27" hair="black" eyes="brown" medical_conditions="No existing medical conditions" marks="Large tatoo on right arm and chest" image="https://daisybeattyphotography.com/wp-content/uploads/2015/09/15-1790-post/head-shots-for-kids-new-york-daisy-beatty(pp_w768_h915).jpg"/>   
-                </div>
-            </div>
-            
-          
-            
-           
-        </Layoutfull>
-            
+                    : null}
+
+
+
+
+
+            </Layoutfull>
+
         </>
     )
 }
