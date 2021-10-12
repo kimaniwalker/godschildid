@@ -35,6 +35,8 @@
 - [x] Ability to send text message remiders setup
 
 
-
+### Take aways from first call
+- Subscription signup page , add save 10$ section
+- Remove any children name and have them enter upon creating a flier
 
 

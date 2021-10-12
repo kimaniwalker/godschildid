@@ -1,6 +1,12 @@
 import React from 'react'
+import Childcardedit from './childcardedit'
+import Router from 'next/router'
+import Link from 'next/link'
 
 export default function Childcard({ child }) {
+
+
+
 
 
     return (
@@ -14,7 +20,7 @@ export default function Childcard({ child }) {
                         </div>
                         <div className="col-7">
                             <div className="card-title">
-                                <h4>{child.first_name} {child.last_name}</h4>
+                                <h4></h4>
                                 <p>Age: {child.age}</p>
                                 <p>Gender: {child.gender}</p>
                                 <p>D.O.B: {child.dob.slice(0, 10)}</p>
@@ -54,13 +60,21 @@ export default function Childcard({ child }) {
                 <div className="card-footer bg-primary">
                     <div className="row text-center text-secondary">
                         <div className="col-4">
-                            Browse
+                            <Link href={`/children/${child.id}`}>
+                                <a className="text-secondary">Browse</a>
+                            </Link>
                         </div>
                         <div className="col-4">
-                            Flier
+                            <Link href={`/children/${child.id}`}>
+                                <a className="text-secondary">Flier</a>
+                            </Link>
                         </div>
                         <div className="col-4">
-                            Edit
+
+                            <Link href={`/children/${child.id}`}>
+                                <a className="text-secondary">Edit</a>
+                            </Link>
+
                         </div>
                     </div>
 
