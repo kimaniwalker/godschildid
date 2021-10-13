@@ -3,7 +3,13 @@ import Childcardedit from './childcardedit'
 import Router from 'next/router'
 import Link from 'next/link'
 
-export default function Childcard({ child }) {
+
+export default function Childcard({ child, flier }) {
+
+    const [first, setFirst] = React.useState('')
+    const [last, setLast] = React.useState('')
+    const [info, setInfo] = React.useState('')
+    const [edit, setEdit] = React.useState(true)
 
 
 
@@ -12,6 +18,13 @@ export default function Childcard({ child }) {
     return (
         <>
             <div class="card h-100">
+                {flier ?
+                    <div class="card-header text-white bg-primary text-center">
+                        <h1>Missing Child</h1>
+                    </div>
+                    :
+                    null}
+
 
                 <div class="card-body">
                     <div className="row">
@@ -20,7 +33,29 @@ export default function Childcard({ child }) {
                         </div>
                         <div className="col-7">
                             <div className="card-title">
-                                <h4></h4>
+
+
+                                {edit ? <>
+                                    {flier ? <><div class="mb-3">
+                                        <label for="first" class="form-label">First Name</label>
+                                        <input onChange={(e) => setFirst(e.target.value)} type="text" class="form-control" id="first" />
+                                    </div>
+                                        <div class="mb-3">
+                                            <label for="last" class="form-label">Last Name</label>
+                                            <input onChange={(e) => setLast(e.target.value)} type="text" class="form-control" id="last" />
+                                        </div>
+                                    </> : null}
+                                </> : <>
+                                    {flier ? <><div class="mb-3">
+                                        <h3>{first} {last}</h3>
+                                    </div>
+
+                                    </> : null}
+                                </>}
+
+
+
+
                                 <p>Age: {child.age}</p>
                                 <p>Gender: {child.gender}</p>
                                 <p>D.O.B: {child.dob.slice(0, 10)}</p>
@@ -55,30 +90,48 @@ export default function Childcard({ child }) {
                         <p>Medical Conditions: {child.medical_conditions}</p>
                         <p>Identifying Marks: {child.marks}</p>
                     </div>
-
-                </div>
-                <div className="card-footer bg-primary">
-                    <div className="row text-center text-secondary">
-                        <div className="col-4">
-                            <Link href={`/children/${child.id}`}>
-                                <a className="text-secondary">Browse</a>
-                            </Link>
-                        </div>
-                        <div className="col-4">
-                            <Link href={`/children/${child.id}`}>
-                                <a className="text-secondary">Flier</a>
-                            </Link>
-                        </div>
-                        <div className="col-4">
-
-                            <Link href={`/children/${child.id}`}>
-                                <a className="text-secondary">Edit</a>
-                            </Link>
-
+                    <div className="row">
+                        <div class="mb-3">
+                            <label for="Height" class="form-label">Additional Information:</label>
+                            <textarea onChange={(e) => setInfo(e.target.value)} type="text" class="form-control" cols="20" id="Height" />
                         </div>
                     </div>
 
                 </div>
+
+
+
+
+                {flier ?
+                    <div className="card-footer bg-primary">
+                        <div className="row text-center text-secondary">
+                            <p>Contact Your Local Authorities If You Have Any Information</p>
+                        </div>
+
+                    </div> :
+                    <div className="card-footer bg-primary">
+                        <div className="row text-center text-secondary">
+                            <div className="col-4">
+                                <Link href={`/children/${child.id}`}>
+                                    <a className="text-secondary">Browse</a>
+                                </Link>
+                            </div>
+                            <div className="col-4">
+                                <Link href={`/children/${child.id}`}>
+                                    <a className="text-secondary">Flier</a>
+                                </Link>
+                            </div>
+                            <div className="col-4">
+
+                                <Link href={`/children/${child.id}`}>
+                                    <a className="text-secondary">Edit</a>
+                                </Link>
+
+                            </div>
+                        </div>
+
+                    </div>}
+
             </div>
         </>
     )
