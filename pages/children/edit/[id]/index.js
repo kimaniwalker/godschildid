@@ -1,14 +1,17 @@
 import { getOne } from '../../../../lib/children'
 import Layout from '../../../../components/layout'
+import Childcardedit from '../../../../components/childcardedit'
+import { useUser } from '../../../../lib/hooks'
 
 function SingleChildEdit({ child }) {
+    const user = useUser({ redirectTo: '/login' })
     // Render data...
     console.log(child)
 
     return (
         <>
             <Layout>
-                <p>{child.id}</p>
+                <Childcardedit child={child} user={user} />
             </Layout>
 
 

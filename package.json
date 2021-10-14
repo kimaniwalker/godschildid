@@ -6,6 +6,8 @@
     "start": "next start -p $PORT"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.0.0-beta.11",
+    "@cloudinary/url-gen": "^1.1.0",
     "@hapi/iron": "6.0.0",
     "@sendgrid/mail": "^7.4.7",
     "bootstrap": "^5.0.0-beta3",

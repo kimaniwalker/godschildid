@@ -12,7 +12,9 @@ export default function Childcard({ child, flier }) {
     const [edit, setEdit] = React.useState(true)
 
 
-
+    const handleCreateFlier = async () => {
+        setEdit(false)
+    }
 
 
     return (
@@ -89,13 +91,26 @@ export default function Childcard({ child, flier }) {
                     <div className="row">
                         <p>Medical Conditions: {child.medical_conditions}</p>
                         <p>Identifying Marks: {child.marks}</p>
+                        {edit ? null : <p>Additional Information: {info} </p>}
                     </div>
-                    <div className="row">
-                        <div class="mb-3">
-                            <label for="Height" class="form-label">Additional Information:</label>
-                            <textarea onChange={(e) => setInfo(e.target.value)} type="text" class="form-control" cols="20" id="Height" />
-                        </div>
-                    </div>
+                    {edit ? <>
+                        {flier ? <div className="row">
+                            <div class="mb-3">
+                                <label for="Height" class="form-label">Additional Information:</label>
+                                <textarea onChange={(e) => setInfo(e.target.value)} type="text" class="form-control" cols="20" id="Height" />
+                            </div>
+                        </div> : null}
+                        {flier ? <div className="row">
+                            <div class="mb-3">
+                                <button className="btn btn-primary" onClick={handleCreateFlier}>Transform Into Flier</button>
+                            </div>
+                        </div> : null}
+                    </> : null}
+
+
+
+
+
 
                 </div>
 
@@ -117,13 +132,13 @@ export default function Childcard({ child, flier }) {
                                 </Link>
                             </div>
                             <div className="col-4">
-                                <Link href={`/children/${child.id}`}>
+                                <Link href={`/children/flier/${child.id}`}>
                                     <a className="text-secondary">Flier</a>
                                 </Link>
                             </div>
                             <div className="col-4">
 
-                                <Link href={`/children/${child.id}`}>
+                                <Link href={`/children/edit/${child.id}`}>
                                     <a className="text-secondary">Edit</a>
                                 </Link>
 
@@ -135,4 +150,7 @@ export default function Childcard({ child, flier }) {
             </div>
         </>
     )
+
+
+
 }
