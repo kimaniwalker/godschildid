@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p $PORT"
   },
   "dependencies": {
     "@cloudinary/react": "^1.0.0-beta.11",
@@ -14,7 +14,7 @@
     "bootstrap-icons": "^1.5.0",
     "cookie": "0.4.1",
     "mysql": "^2.18.1",
-    "next": "latest",
+    "next": "^11.1.0",
     "next-connect": "0.8.1",
     "passport": "0.4.1",
     "passport-local": "1.0.0",
