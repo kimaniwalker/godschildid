@@ -1,15 +1,13 @@
-import React from 'react'
+import Router from 'next/router'
+import React, { useEffect } from 'react'
 
 
 export default function Childcardedit({ child }) {
 
-    console.log(child)
-
-
     const [image, setImage] = React.useState(child.image)
     const [height, setHeight] = React.useState(child.height)
     const [weight, setWeight] = React.useState(child.weight)
-    const [medical, setMedical] = React.useState(child.medical)
+    const [medical, setMedical] = React.useState(child.medical_conditions)
     const [marks, setMarks] = React.useState(child.marks)
     const [hair, setHair] = React.useState(child.hair)
     const [uploadimg, setUploadimg] = React.useState('')
@@ -31,27 +29,29 @@ export default function Childcardedit({ child }) {
             .then(response => response.text())
             .then(result => {
                 let img = JSON.parse(result)
-                setUploadimg(img.secure_url)
+                let body = {
+                    id: child.id,
+                    image: img.secure_url,
+                    height,
+                    weight,
+                    marks,
+                    hair,
+                    medical_conditions: medical
+
+                }
+                return body
+            })
+            .then(resolution => {
+                console.log(resolution)
+                handleSubmit(resolution)
             })
             .catch(error => console.log('error', error));
     }
 
 
-    const handleSubmit = async () => {
-        let body = {
-            id: child.id,
-            height,
-            weight,
-            hair,
-            medical_conditions: medical,
-            marks
-        }
-        console.log(body)
+    const handleSubmit = async (body) => {
+
         try {
-
-
-
-
 
             const res = await fetch('/api/children/updatechild', {
                 method: 'POST',
@@ -61,11 +61,16 @@ export default function Childcardedit({ child }) {
             if (res.status === 200) {
                 const session = await res.json()
                 console.log(session)
+                Router.push(`/children/edit/${child.id}`)
 
 
             } else {
                 throw new Error(await res.text())
             }
+
+
+
+
         } catch (error) {
             console.error('An unexpected error happened occurred:', error)
             setErrormsg(error.message)
@@ -116,7 +121,7 @@ export default function Childcardedit({ child }) {
                 {errormsg}
             </div> : null}
             <div className="mb-3">
-                <button onClick={handleSubmit} className="btn btn-primary"> Update Child</button>
+                <button onClick={imgupload} className="btn btn-primary"> Update Child</button>
             </div>
 
 
