@@ -1,15 +1,52 @@
 import React from 'react'
+import { useAppContext } from '../lib/context/userstate'
 import styles from '../styles/css/homebanner2.module.css'
 import Form from './form'
+import Router from 'next/router'
 
 export default function Homebanner2(props) {
+
+    const user = useAppContext()
+    const [errorMsg, setErrorMsg] = React.useState('')
+
+    async function handleSubmit(e) {
+        e.preventDefault()
+
+        if (errorMsg) setErrorMsg('')
+
+        const body = {
+            username: e.currentTarget.username.value,
+            password: e.currentTarget.password.value,
+        }
+
+        if (body.password !== e.currentTarget.rpassword.value) {
+            setErrorMsg(`The passwords don't match`)
+            return
+        }
+
+        try {
+            const res = await fetch('/api/auth/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+            })
+            if (res.status === 200) {
+                Router.push('/login')
+            } else {
+                throw new Error(await res.text())
+            }
+        } catch (error) {
+            console.error('An unexpected error happened occurred:', error)
+            setErrorMsg(error.message)
+        }
+    }
 
 
     return (
         <>
             <div id={styles.bannercontainer} className="container-fluid p-0 m-0 bg-secondary">
                 <div className="row p-5">
-                    <div className="col-6 align-items-center">
+                    <div className="col-xl-6 col-md-6 col-sm-12 col-xs-12 align-items-center">
 
                         <div className="row text-center">
                             <h3>For Information Or Instructions, Play Video</h3>
@@ -25,11 +62,10 @@ export default function Homebanner2(props) {
 
 
                     </div>
-                    <div className="col-6">
+                    <div className="col-xl-6 col-md-6 col-sm-12 col-xs-12 align-items-center">
 
                         <div className="row p-5">
-                            <h3 className="py-2 text-primary2">Sign Up Or Login</h3>
-                            <Form />
+                            {user.user ? null : <><h3 className="py-2 text-primary2">Sign Up Or Login</h3><Form isLogin={false} errorMessage={errorMsg} onSubmit={handleSubmit} /></>}
                         </div>
 
 

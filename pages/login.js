@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import Form from '../components/form'
 
 const Login = () => {
-  useUser({ redirectTo: '/', redirectIfFound: true })
+  useUser({ redirectTo: '/profile', redirectIfFound: true })
 
   const [errorMsg, setErrorMsg] = useState('')
   const [usersession, setuserSession] = useState([])
@@ -33,14 +33,14 @@ const Login = () => {
         if (!userSession.user.auth) {
           console.log('User Does Not Have 2FA Enabled Give Them A Cookie')
           console.log(userSession.user.auth)
-          Router.push('/')
+          Router.push('/profile')
         } else {
           console.log('User has 2FA Enabled')
           Router.push(`/verifytoken?username=${userSession.user.username}`)
         }
 
 
-        
+
       } else {
         throw new Error(await res.text())
       }

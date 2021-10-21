@@ -1,86 +1,84 @@
-import Link from 'next/link'
-import { useUser } from '../lib/hooks'
 import Topheader from './topheader'
+import styles from '../styles/css/header.module.css'
+import { useAppContext } from '../lib/context/userstate'
+
 
 const Header = () => {
-  const user = useUser()
+  const user = useAppContext()
 
   return (
     <>
-    <Topheader />
-    <header className="bg-primary2 justify-content-center d-flex sticky-top">
-      
-        <ul className="align-items-center">
-          <li>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/mypage">
-              <a>My Page</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/links">
-              <a>Important Links</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/faq">
-              <a>Faq</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/signup">
-              <a>Sign Up</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">
-              <a>About Us</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact">
-              <a>Contact Us</a>
-            </Link>
-          </li>
-          {user ?
-          <>
-          <li>
-            <Link href="/api/auth/logout">
-              <a>Logout</a>
-            </Link>
-          </li>
-          </> : <>
-          <li>
-            <Link href="/login">
-              <a>Login</a>
-            </Link>
-          </li>
-          </>  }
-        </ul>
-      <style jsx>{`
-        
-        ul {
-          display: flex;
-          list-style: none;
-        }
-        li {
-         
-          margin: 10px 20px;
-          
-          
-        }
-        
-        a {
-          color: #fff;
-          text-decoration: none;
-        }
-        
-      `}</style>
-    </header>
+      <Topheader />
+      {!user.user
+
+        ?
+
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-primary2 py-4">
+
+          <div class="container-fluid d-flex justify-content-center">
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <a class={styles.navLink} aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/faq">Faq</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/links">Important Links</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/login">Login</a>
+              </li>
+            </ul>
+
+          </div>
+
+
+        </nav>
+
+        :
+
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-primary2 py-4">
+
+          <div class="container-fluid d-flex justify-content-center">
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <a class={styles.navLink} aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} aria-current="page" href="/mypage">Six Up</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/faq">Faq</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/links">Important Links</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class={styles.navLink} href="/api/auth/logout">Logout</a>
+              </li>
+            </ul>
+
+          </div>
+
+
+        </nav>
+      }
     </>
   )
 }

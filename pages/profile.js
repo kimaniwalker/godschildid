@@ -1,51 +1,19 @@
 import React from 'react'
 import { useUser } from '../lib/hooks'
 import Layout from '../components/layout'
-import Stripesetup from '../components/stripesetup'
 import Stripebilling from '../components/stripeBilling'
 import Profilecard from '../components/profileCard'
 import Twofactorauthsetup from '../components/twofactorauthsetup'
+import Link from 'next/link'
+import { useAppContext } from '../lib/context/userstate'
 
 
 const Profile = () => {
   const user = useUser({ redirectTo: '/login' })
+  const acctstatus = useAppContext()
   const [customer, setcustomer] = React.useState([])
-  const [status, setstatus] = React.useState('')
-
-  const getcustomerinfo = async () => {
-    let body = {
-      customer_id: user.customer_id
-    }
-
-    try {
-      const res = await fetch(`/api/payments/customerinfo`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      })
-      if (res.status === 200) {
-        const session = await res.json()
-        setcustomer(session)
-        setstatus(session.customer.subscriptions.data[0].status)
 
 
-      } else {
-        throw new Error(await res.text())
-      }
-    } catch (error) {
-      console.error('An unexpected error happened occurred:', error)
-
-
-    }
-  }
-
-  React.useEffect(() => {
-
-    {
-      user && user.customer_id ? getcustomerinfo() : null
-    }
-
-  }, [user])
 
   return (
     <Layout>
@@ -54,7 +22,7 @@ const Profile = () => {
         <>
           <h1 className="py-4">My Profile</h1>
 
-          <Profilecard title={'Manage Subscription'} body={'Discontinue your subscription anytime. Use this portal to view and manage your subscription information.'} image={<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="currentColor" class="bi bi-credit-card-2-back" viewBox="0 0 16 16">
+          <Profilecard title={'Manage Subscription'} body={'Use this portal to view and manage your subscription information. Discontinue your subscription anytime. '} image={<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="currentColor" class="bi bi-credit-card-2-back" viewBox="0 0 16 16">
             <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1z" />
             <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z" />
           </svg>} link={<Stripebilling user={user} />} />
@@ -65,10 +33,12 @@ const Profile = () => {
           </svg>} link={<Twofactorauthsetup user={user} />} />
 
 
-          {status === 'active' ? <Profilecard title={'Add New Child'} body={'Add and modify your children\'s demographic information here. Don\'t forget to update it every 3-4 months !'} image={<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+          {acctstatus.status === 'active' ? <Profilecard title={'Childrens Workspace'} body={'Add and modify your children\'s demographic information here. Don\'t forget to update it every 3-4 months !'} image={<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
             <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
             <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
-          </svg>} link={<Stripebilling user={user} />} /> : null}
+          </svg>} link={<Link href="/mypage">
+            <button className="btn btn-primary w-100">Six Up Page</button>
+          </Link>} /> : null}
 
 
 

@@ -4,14 +4,14 @@ import React, { useEffect } from 'react'
 
 export default function Childcardedit({ child }) {
 
-    const [image, setImage] = React.useState(child.image)
+    const [image, setImage] = React.useState('')
     const [height, setHeight] = React.useState(child.height)
     const [weight, setWeight] = React.useState(child.weight)
     const [medical, setMedical] = React.useState(child.medical_conditions)
     const [marks, setMarks] = React.useState(child.marks)
     const [hair, setHair] = React.useState(child.hair)
-    const [uploadimg, setUploadimg] = React.useState('')
     const [errormsg, setErrormsg] = React.useState('')
+
 
     const imgupload = async () => {
 
@@ -121,7 +121,16 @@ export default function Childcardedit({ child }) {
                 {errormsg}
             </div> : null}
             <div className="mb-3">
-                <button onClick={imgupload} className="btn btn-primary"> Update Child</button>
+
+                {image ? <button onClick={imgupload} className="btn btn-primary"> Update Child</button> : <button onClick={(e) => handleSubmit({
+                    id: child.id,
+                    height,
+                    weight,
+                    marks,
+                    hair,
+                    medical_conditions: medical
+                })} className="btn btn-primary"> Update Child</button>}
+
             </div>
 
 
