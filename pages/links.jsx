@@ -8,8 +8,8 @@ export default function Links(props) {
     return (
         <>
             <Layout>
-                <h2 className="my-2 py-2">Important Links</h2>
-                <p>Important Links is a work in progress, and we welcome your input. If you identify a website or article, you think would be helpful in keeping our children safe and healthy, please send it via our email address at <a href = "mailto: support@GodsChildID.com">support@GodsChildID.com</a> and also share it on our Facebook page, God’s Child ID. Below are some important links I encourage you view.</p>
+                <h1 className="my-2 py-4">Important Links</h1>
+                <p>Important Links is a work in progress, and we welcome your input. If you identify a website or article, you think would be helpful in keeping our children safe and healthy, please send it via our email address at <a href="mailto: support@GodsChildID.com">support@GodsChildID.com</a> and also share it on our Facebook page, God’s Child ID. Below are some important links I encourage you view.</p>
                 <p>Find out who may live in your area that has been formally convicted of a sexual felony.</p>
                 <div className="py-2 my-2">
                     <Link href="https://www.nsopw.gov/">
@@ -40,10 +40,10 @@ export default function Links(props) {
                 <p>Helping a teenager to be aware of their surroundings and how to be safe</p>
                 <div className="py-2 my-2">
                     <Link href="https://www.thebettermom.com/blog/2017/5/17/10-tips-to-teach-your-teenagers-about-safety">
-                    <a>The Better Mom Blog</a>
-                </Link>
+                        <a>The Better Mom Blog</a>
+                    </Link>
                 </div>
-                
+
             </Layout>
 
         </>

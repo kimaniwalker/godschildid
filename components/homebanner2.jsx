@@ -44,12 +44,12 @@ export default function Homebanner2(props) {
 
     return (
         <>
-            <div id={styles.bannercontainer} className="container-fluid p-0 m-0 bg-secondary">
-                <div className="row p-5">
+            <div id={styles.bannercontainer} className="container-fluid p-0 m-0">
+                <div id={styles.bannercontent} className="row p-5">
                     <div className="col-xl-6 col-md-6 col-sm-12 col-xs-12 align-items-center">
 
                         <div className="row text-center">
-                            <h3>For Information Or Instructions, Play Video</h3>
+                            <h3 id={styles.title}>For Information Or Instructions, Play Video</h3>
                         </div>
 
                         <div className="row justify-content-end p-5 d-flex">
@@ -64,14 +64,18 @@ export default function Homebanner2(props) {
                     </div>
                     <div className="col-xl-6 col-md-6 col-sm-12 col-xs-12 align-items-center">
 
-                        <div className="row p-5">
-                            {user.user ? null : <><h3 className="py-2 text-primary2">Sign Up Or Login</h3><Form isLogin={false} errorMessage={errorMsg} onSubmit={handleSubmit} /></>}
+                        <div className="row mb-4 mx-5">
+                            {user.user ? null : <><div className="row py-2 mb-4">
+                                <h3 className="text-secondary">Sign Up Or Login</h3>
+                            </div><Form isLogin={false} errorMessage={errorMsg} onSubmit={handleSubmit} /></>}
                         </div>
 
 
                     </div>
                 </div>
+
             </div>
+
         </>
     )
 }

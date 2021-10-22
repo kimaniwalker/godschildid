@@ -5,8 +5,16 @@
     background-repeat: no-repeat;
     width: 100vw;
     background-image: url(../../assets/family_blue_banner.jpg);
+    position: relative;
+    
 }
+
+
 
 #bottombanner {
     height: 2vh;
+}
+
+#text {
+    font-family: 'Mulish', sans-serif;
 }

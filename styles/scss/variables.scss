@@ -11,4 +11,19 @@ $theme-colors: (
   'dark': #001738,
 );
 
+h2,h3,h4,h5,h6,p,a {
+  font-family: 'Mulish', sans-serif;
+}
+
+li {
+  font-family: 'Mulish', sans-serif;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: 'Courgette', cursive;
+  color: #486376;
+}
+
+
 @import '/node_modules/bootstrap/scss/bootstrap.scss';

@@ -13,7 +13,7 @@ const Header = () => {
 
         ?
 
-        <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-primary2 py-4">
+        <nav id={styles.header} class="navbar navbar-expand-lg sticky-top navbar-light bg-primary2 py-4">
 
           <div class="container-fluid d-flex justify-content-center">
             <ul class="navbar-nav ">

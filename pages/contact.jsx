@@ -38,7 +38,7 @@ export default function Contact(props) {
     return (
         <>
             <Layout>
-                <h2 className="py-3">Send Us A Message</h2>
+                <h1 className="py-4 my-2">Get In Touch</h1>
                 <form onSubmit={handleSubmit}>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -52,7 +52,7 @@ export default function Contact(props) {
                         <label for="exampleFormControlTextarea1" class="form-label">Message</label>
                         <textarea value={message} onChange={(e) => setmessage(e.target.value)} on class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-                    <button type="submit" className="btn btn-primary">Send Messagae</button>
+                    <button type="submit" className="btn btn-primary">Send Message</button>
                 </form>
             </Layout>
 

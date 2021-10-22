@@ -7,7 +7,7 @@ export default function Faq(props) {
     return (
         <>
             <Layout>
-                <h2 className="py-2 my-2">Frequently Asked Questions</h2>
+                <h1 className="py-4 my-2">Frequently Asked Questions</h1>
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
@@ -46,7 +46,7 @@ export default function Faq(props) {
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                            How can I cancel my subscription to God’s Child ID?
+                                How can I cancel my subscription to God’s Child ID?
                             </button>
                         </h2>
                         <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headinFour" data-bs-parent="#accordionFlushExample">

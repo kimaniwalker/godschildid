@@ -55,7 +55,7 @@ export default function Mypage(props) {
                     <div className="row p-5 g-4 m-3">
 
                         {children.map((child => (
-                            <div key={child.id} className="col-4">
+                            <div key={child.id} className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
 
                                 <Childcard child={child} />
 
@@ -65,7 +65,7 @@ export default function Mypage(props) {
 
                     </div>
                 </div>
-                    : null}</> : <><h2>Your subscription is not active. Please go to your profile page for more information</h2></>}
+                    : null}</> : <><h2 className="text-center my-5 py-5">Your subscription is not active. Please navigate to your profile page for more information.</h2></>}
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import Childcardedit from './childcardedit'
-import Router from 'next/router'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import Socialshare from './socialshare'
 
 
 export default function Childcard({ child, flier }) {
@@ -10,19 +10,34 @@ export default function Childcard({ child, flier }) {
     const [last, setLast] = React.useState('')
     const [info, setInfo] = React.useState('')
     const [edit, setEdit] = React.useState(true)
+    const router = useRouter()
 
 
     const handleCreateFlier = async () => {
         setEdit(false)
+        // printDiv('printarea')
+
     }
 
+    const printDiv = (divName) => {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
 
     return (
         <>
-            <div class="card h-100">
+            <div id="printarea" class="card h-100">
+
                 {flier ?
                     <div class="card-header text-white bg-primary text-center">
-                        <h1>Missing Child</h1>
+                        <h2 className="text-white">Missing Child</h2>
+
                     </div>
                     :
                     null}
@@ -30,10 +45,10 @@ export default function Childcard({ child, flier }) {
 
                 <div class="card-body">
                     <div className="row">
-                        <div className="col-5">
+                        <div className="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
                             <img src={child.image} class="card-img" alt="profile pic" />
                         </div>
-                        <div className="col-7">
+                        <div className="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                             <div className="card-title">
 
 
@@ -61,6 +76,10 @@ export default function Childcard({ child, flier }) {
                                 <p>Age: {child.age}</p>
                                 <p>Gender: {child.gender}</p>
                                 <p>D.O.B: {child.dob.slice(0, 10)}</p>
+                                <p>Race: {child.race}</p>
+
+                                {edit ? null : <Socialshare />}
+
 
 
                             </div>
@@ -73,14 +92,14 @@ export default function Childcard({ child, flier }) {
                     </div>
 
                     <div className="row pt-2">
-                        <div className="col-6">
+                        <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <p>Height: {child.height}</p>
                             <p>Weight: {child.weight}</p>
 
 
 
                         </div>
-                        <div className="col-6">
+                        <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <p>Hair Color: {child.hair}</p>
                             <p>Eye Color: {child.eyes}</p>
 
@@ -126,17 +145,17 @@ export default function Childcard({ child, flier }) {
                     </div> :
                     <div className="card-footer bg-primary">
                         <div className="row text-center text-secondary">
-                            <div className="col-4">
+                            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                                 <Link href={`/children/${child.id}`}>
                                     <a className="text-secondary">Browse</a>
                                 </Link>
                             </div>
-                            <div className="col-4">
+                            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                                 <Link href={`/children/flier/${child.id}`}>
                                     <a className="text-secondary">Flier</a>
                                 </Link>
                             </div>
-                            <div className="col-4">
+                            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
 
                                 <Link href={`/children/edit/${child.id}`}>
                                     <a className="text-secondary">Edit</a>

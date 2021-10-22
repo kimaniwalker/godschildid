@@ -10,7 +10,7 @@ export default function Homebanner(props) {
                 <div className="row justify-content-center">
 
                     <div className="col-5">
-                        <h2 className="text-center text-white my-4 py-3">Vital Information About Your Children For You And Law Enforcenment Agencies</h2>
+                        <h2 id={styles.text} className="text-center text-white my-4 py-3">Vital Information About Your Children For You And Law Enforcenment Agencies</h2>
                     </div>
                 </div>
 

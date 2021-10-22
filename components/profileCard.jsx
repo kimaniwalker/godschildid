@@ -8,13 +8,13 @@ export default function Profilecard(props) {
         <>
             <div class="card mb-3" >
                 <div class="row g-0">
-                    <div class="col-md-4">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                         <div className="row justify-content-center align-items-center h-100 text-primary bg-light">
-                        {props.image}
+                            {props.image}
                         </div>
 
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
                         <div class="card-body">
                             <h5 class="card-title">{props.title}</h5>
                             <p class="card-text">{props.body}</p>
