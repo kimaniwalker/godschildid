@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Socialshare from './socialshare'
+import Router from 'next/router'
 
 
 export default function Childcard({ child, flier }) {
@@ -10,11 +11,21 @@ export default function Childcard({ child, flier }) {
     const [last, setLast] = React.useState('')
     const [info, setInfo] = React.useState('')
     const [edit, setEdit] = React.useState(true)
+
     const router = useRouter()
 
 
+    React.useEffect(() => {
+        if (router.query.edit) {
+            setEdit(false)
+
+        } else {
+            return
+        }
+    }, [router])
+
     const handleCreateFlier = async () => {
-        setEdit(false)
+        Router.push(`/children/flier/${child.id}?first=${first}&last=${last}&edit=false&info=${info}`)
         // printDiv('printarea')
 
     }
@@ -64,7 +75,7 @@ export default function Childcard({ child, flier }) {
                                     </> : null}
                                 </> : <>
                                     {flier ? <><div class="mb-3">
-                                        <h3>{first} {last}</h3>
+                                        <h3>{router.query.first} {router.query.last}</h3>
                                     </div>
 
                                     </> : null}
@@ -78,7 +89,7 @@ export default function Childcard({ child, flier }) {
                                 <p>D.O.B: {child.dob.slice(0, 10)}</p>
                                 <p>Race: {child.race}</p>
 
-                                {edit ? null : <Socialshare />}
+                                {edit ? null : <Socialshare pathname={router.asPath} />}
 
 
 

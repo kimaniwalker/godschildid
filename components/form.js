@@ -21,20 +21,40 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
     <div className="submit">
       {isLogin ? (
         <>
-          <Link href="/signup">
-            <a>Register</a>
-          </Link>
-          <Link href="/forgotpassword">
-            <a>Forgot password</a>
-          </Link>
-          <button type="submit">Login</button>
+          <div className="row">
+            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+              <Link href="/signup">
+                <a>Register</a>
+              </Link>
+            </div>
+            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+              <Link href="/forgotpassword">
+                <a>Forgot password</a>
+              </Link>
+            </div>
+            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+              <button className="btn btn-primary w-100" type="submit">Login</button>
+            </div>
+
+
+
+          </div>
+
         </>
       ) : (
         <>
+
+
           <Link href="/login">
             <a>I already have an account</a>
           </Link>
-          <button type="submit">Signup</button>
+
+
+          <button className="btn btn-primary" type="submit">Signup</button>
+
+
+
+
         </>
       )}
     </div>
@@ -69,7 +89,7 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
       .submit > button {
         padding: 0.5rem 1rem;
         cursor: pointer;
-        background: #fff;
+        
         border: 1px solid #ccc;
         border-radius: 4px;
       }
