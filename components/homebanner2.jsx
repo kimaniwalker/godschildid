@@ -54,7 +54,7 @@ export default function Homebanner2(props) {
 
                         <div className="row justify-content-end p-5 d-flex">
 
-                            <iframe width="75%" height="300" src="https://www.youtube.com/embed/SY7RhBszp0k" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullscreen></iframe>
+                            <iframe width="75%" height="300" src="https://www.youtube.com/embed/SY7RhBszp0k" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
                         </div>
 

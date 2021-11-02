@@ -11,9 +11,9 @@ const Layout = (props) => (
     <Header />
 
     <main>
-      <div className="container">{props.children}</div>
+      <div className="layoutcontainer">{props.children}</div>
     </main>
-    
+
 
     <style jsx global>{`
       *,
@@ -28,7 +28,7 @@ const Layout = (props) => (
           'Helvetica Neue', Arial, Noto Sans, sans-serif, 'Apple Color Emoji',
           'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
       }
-      .container {
+      .layoutcontainer {
         max-width: 60vw;
         margin: 0 auto;
         padding: 2rem 1.25rem;
