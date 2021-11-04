@@ -8,10 +8,17 @@ function SingleChild({ child }) {
 
     return (
         <>
-            <Layout>
 
-                <Childcard child={child} flier={true} />
-            </Layout>
+            <div className="container">
+                <div className="row justify-content-center my-5">
+                    <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+                        <Childcard child={child} flier={true} />
+                    </div>
+                </div>
+
+            </div>
+
+
 
 
         </>

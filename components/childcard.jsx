@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Socialshare from './socialshare'
 import Router from 'next/router'
+import Image from 'next/image'
+import logo from '../assets/logo.svg'
 
 
 export default function Childcard({ child, flier }) {
@@ -11,6 +13,7 @@ export default function Childcard({ child, flier }) {
     const [last, setLast] = React.useState('')
     const [info, setInfo] = React.useState('')
     const [edit, setEdit] = React.useState(true)
+    const [age, setAge] = React.useState(child.dob.split("-"))
 
     const router = useRouter()
 
@@ -30,6 +33,13 @@ export default function Childcard({ child, flier }) {
 
     }
 
+    function calculate_age(dob) {
+        var diff_ms = Date.now() - dob.getTime();
+        var age_dt = new Date(diff_ms);
+
+        return Math.abs(age_dt.getUTCFullYear() - 1970);
+    }
+
     const printDiv = (divName) => {
         var printContents = document.getElementById(divName).innerHTML;
         var originalContents = document.body.innerHTML;
@@ -46,8 +56,18 @@ export default function Childcard({ child, flier }) {
             <div id="printarea" class="card h-100">
 
                 {flier ?
-                    <div class="card-header text-white bg-primary text-center">
-                        <h2 className="text-white">Missing Child</h2>
+                    <div class="card-header text-white bg-dark">
+                        <div className="row justify-content-space-between align-items-center">
+                            <div className="col">
+                                <Image width={200} height={100} src={logo} />
+                            </div>
+                            <div className="col px-3">
+                                <h2 className="text-white text-end">Missing Child</h2>
+                            </div>
+
+
+                        </div>
+
 
                     </div>
                     :
@@ -84,7 +104,7 @@ export default function Childcard({ child, flier }) {
 
 
 
-                                <p>Age: {child.age}</p>
+                                <p>Age: {calculate_age(new Date(age[0], age[1], age[2].substring(0, 2)))}</p>
                                 <p>Gender: {child.gender}</p>
                                 <p>D.O.B: {child.dob.slice(0, 10)}</p>
                                 <p>Race: {child.race}</p>

@@ -18,7 +18,7 @@ export default function Socialshare({ pathname }) {
                 <div class="card-body">
 
 
-
+                    <div className="py-2"><span>Select A Option To Share:</span></div>
 
                     <Link href="https://www.facebook.com/sharer/sharer.php?u=http%3A//localhost%3A3000/children/flier/2?first=Kimani%26last=Walker%26edit=false%26info=test">
                         <a><span><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook mx-2 text-primary" viewBox="0 0 16 16">
