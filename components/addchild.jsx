@@ -2,12 +2,13 @@ import React from 'react'
 import Layout from '../components/layout'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Router from 'next/router'
 
 
 export default function Addchild({ user }) {
 
 
-    const [gender, setGender] = React.useState('')
+    const [gender, setGender] = React.useState('Male')
     const [dob, setDob] = React.useState('')
     const [height, setHeight] = React.useState('')
     const [weight, setWeight] = React.useState('')
@@ -19,8 +20,8 @@ export default function Addchild({ user }) {
     const [errormsg, setErrormsg] = React.useState('')
     const [image, setImage] = React.useState('')
 
-    const handleupload = async () => {
-
+    const handleupload = async (e) => {
+        e.preventDefault()
         var formdata = new FormData();
         formdata.append("file", image);
         formdata.append("upload_preset", "godschild");
@@ -38,14 +39,14 @@ export default function Addchild({ user }) {
                 let body = {
                     parentid: user.id,
                     gender,
-                    dob,
+                    dob: new Date(dob).toISOString().slice(0, 10),
                     race,
                     image: img.secure_url,
                     height,
                     weight,
                     marks,
                     hair,
-                    eye,
+                    eyes: eye,
                     medical_conditions: medical
 
                 }
@@ -55,7 +56,10 @@ export default function Addchild({ user }) {
                 console.log(resolution)
                 handleSubmit(resolution)
             })
-            .catch(error => console.log('error', error));
+            .catch(error => {
+                console.log('error', error)
+                setErrormsg(error)
+            });
     }
 
     const handleSubmit = async (body) => {
@@ -69,7 +73,7 @@ export default function Addchild({ user }) {
             if (res.status === 200) {
                 const session = await res.json()
                 console.log(session)
-                Router.push(session.url)
+                Router.push('/')
 
             } else {
                 throw new Error(await res.text())
@@ -89,19 +93,16 @@ export default function Addchild({ user }) {
                     <div class="mb-3">
                         <label for="gender" class="form-label">Gender</label>
                         <select onChange={(e) => setGender(e.target.value)} class="form-select" aria-label="Default select example">
-                            <option selected>Male</option>
-                            <option value="1">Female</option>
+                            <option value="Male">Male</option>
+                            <option defaultValue="Female">Female</option>
 
                         </select>
 
                     </div>
                     <div class="mb-3">
                         <label for="race" class="form-label">Race</label>
-                        <select onChange={(e) => setRace(e.target.value)} class="form-select" aria-label="Default select example">
-                            <option selected>African American</option>
-                            <option value="1">Caucasian</option>
-
-                        </select>
+                        <input maxLength="10" onChange={(e) => setRace(e.target.value)} class="form-control" aria-label="race"
+                        />
 
                     </div>
                     <div class="mb-3">
@@ -111,41 +112,33 @@ export default function Addchild({ user }) {
                     </div>
                     <div class="mb-3">
                         <label for="Height" class="form-label">Height</label>
-                        <input onChange={(e) => setHeight(e.target.value)} type="text" class="form-control" id="Height" />
+                        <input maxLength="5" onChange={(e) => setHeight(e.target.value)} type="text" class="form-control" id="Height" />
                     </div>
                     <div class="mb-3">
                         <label for="Weight" class="form-label">Weight</label>
-                        <input onChange={(e) => setWeight(e.target.value)} type="number" class="form-control" id="Weight" />
+                        <input maxLength="3" onChange={(e) => setWeight(e.target.value)} type="number" class="form-control" id="Weight" />
                     </div>
                     <div class="mb-3">
                         <label for="eye" class="form-label">Eye Color</label>
-                        <select onChange={(e) => setEye(e.target.value)} class="form-select" aria-label="Eye Color">
-                            <option selected>Brown</option>
-                            <option value="black">Black</option>
-                            <option value="green">Green</option>
-                            <option value="blue">Blue</option>
+                        <input maxLength="10" onChange={(e) => setEye(e.target.value)} class="form-control" aria-label="Eye Color" />
 
-                        </select>
 
                     </div>
                     <div class="mb-3">
                         <label for="hair" class="form-label">Hair Color</label>
-                        <select onChange={(e) => setHair(e.target.value)} class="form-select" aria-label="Hair Color">
-                            <option selected>Brown</option>
-                            <option value="black">Black</option>
-                            <option value="green">Green</option>
-                            <option value="blue">Blue</option>
+                        <input maxLength="10" onChange={(e) => setHair(e.target.value)} class="form-control" aria-label="Hair Color" />
 
-                        </select>
+
+
 
                     </div>
                     <div class="mb-3">
                         <label for="medicalconditions" class="form-label">Medical Conditions</label>
-                        <textarea onChange={(e) => setMedical(e.target.value)} cols="30" type="text" class="form-control" id="medicalconditions" />
+                        <textarea maxLength="245" onChange={(e) => setMedical(e.target.value)} cols="30" type="text" class="form-control" id="medicalconditions" />
                     </div>
                     <div class="mb-3">
                         <label for="marks" class="form-label">Identifying Marks</label>
-                        <textarea onChange={(e) => setMarks(e.target.value)} cols="30" type="text" class="form-control" id="marks" />
+                        <textarea maxLength="245" onChange={(e) => setMarks(e.target.value)} cols="30" type="text" class="form-control" id="marks" />
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Image</label>

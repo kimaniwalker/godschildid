@@ -1,16 +1,17 @@
 import React from 'react'
 import { useUser } from '../lib/hooks'
 import { useRouter } from 'next/router'
+import Layout from '../components/layout'
 
 export default function Success() {
 
     const [session, setsession] = React.useState([])
-    const user = useUser({ redirectTo: '/login' })
+    //const user = useUser({ redirectTo: '/login' })
     const router = useRouter()
     const sessionid = router.query.session_id
-   
 
-    React.useEffect(() => {
+
+    /* React.useEffect(() => {
         if(!sessionid) {
             return;
         } else {
@@ -18,9 +19,9 @@ export default function Success() {
         }
         
 
-    }, [sessionid])
+    }, [sessionid]) */
 
-    
+
 
     const getsession = async () => {
 
@@ -40,14 +41,14 @@ export default function Success() {
                 const session = await res.json()
                 console.log(session)
                 setsession(session)
-                
+
 
                 let sessionbody = {
                     customer_id: session.session.customer.id,
                     id: user.id
                 }
                 console.log(body)
-        
+
                 try {
                     const res = await fetch(`/api/payments/savecustomerid`, {
                         method: 'POST',
@@ -57,15 +58,15 @@ export default function Success() {
                     if (res.status === 200) {
                         const results = await res.json()
                         console.log(results)
-        
+
                     } else {
                         throw new Error(await res.text())
                     }
                 } catch (error) {
                     console.error('An unexpected error happened occurred:', error)
-        
+
                 }
-               
+
 
             } else {
                 throw new Error(await res.text())
@@ -76,16 +77,21 @@ export default function Success() {
         }
     }
 
-   
+
 
 
 
 
     return (
         <>
-            <div>Testing</div>
-            
-            
+            <Layout>
+                <h2>Thank You For Subscribing</h2>
+                <h5>Get Started Adding Your Children</h5>
+
+
+            </Layout>
+
+
         </>
     )
 }
