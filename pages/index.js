@@ -3,6 +3,7 @@ import Layoutfull from '../components/layoutfull'
 import Homebanner from '../components/homebanner'
 import Homebanner2 from '../components/homebanner2'
 
+
 const Home = () => {
   const user = useUser()
 
@@ -10,6 +11,7 @@ const Home = () => {
     <Layoutfull>
       <Homebanner2 />
       <Homebanner />
+
       {/* <h1 className="text-primary">GodsChildId</h1>
 
       <p>Steps to test the example:</p>
