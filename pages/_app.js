@@ -6,6 +6,8 @@ import { UserWrapper } from '../lib/context/userstate';
 import * as ga from '../lib/googleAnalytics'
 import { useRouter } from 'next/router';
 import { useEffect } from 'react'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // own css files here
 
@@ -62,6 +64,7 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <UserWrapper>
         <Component {...pageProps} />
+        <ToastContainer />
       </UserWrapper>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossOrigin="anonymous"></script>

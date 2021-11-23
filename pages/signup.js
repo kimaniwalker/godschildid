@@ -3,11 +3,13 @@ import Router from 'next/router'
 import { useUser } from '../lib/hooks'
 import Layout from '../components/layout'
 import Form from '../components/form'
+import { toast } from 'react-toastify';
 
 const Signup = () => {
   useUser({ redirectTo: '/', redirectIfFound: true })
 
   const [errorMsg, setErrorMsg] = useState('')
+  const success = () => toast.success("Success");
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -31,7 +33,9 @@ const Signup = () => {
         body: JSON.stringify(body),
       })
       if (res.status === 200) {
-        Router.push('/login')
+        success()
+        Router.push("/login")
+
       } else {
         throw new Error(await res.text())
       }
@@ -42,10 +46,14 @@ const Signup = () => {
   }
 
   return (
+
+
     <Layout>
+
       <div className="login">
         <Form isLogin={false} errorMessage={errorMsg} onSubmit={handleSubmit} />
       </div>
+
       <style jsx>{`
         .login {
           max-width: 21rem;
@@ -55,8 +63,11 @@ const Signup = () => {
           border-radius: 4px;
         }
       `}</style>
+
     </Layout>
   )
+
+
 }
 
 export default Signup
