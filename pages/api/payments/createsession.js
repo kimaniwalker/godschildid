@@ -14,7 +14,7 @@ export default async function Createsession(req, res) {
     });
 
     res.status(200).json({ url: session.url })
-  } catch {
+  } catch (error) {
     console.error(error)
     res.status(500).end(error.message)
   }
