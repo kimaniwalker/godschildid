@@ -1,5 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPESKTST);
-const YOUR_DOMAIN = 'https://godschildid.com';
+const YOUR_DOMAIN = 'https://www.godschildid.com';
 
 export default async function Createsession(req, res) {
   try {
