@@ -2,6 +2,7 @@ import { useUser } from '../lib/hooks'
 import Layoutfull from '../components/layoutfull'
 import Homebanner from '../components/homebanner'
 import Homebanner2 from '../components/homebanner2'
+import Pricing from '../components/pricing'
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
     <Layoutfull>
       <Homebanner2 />
       <Homebanner />
+      <Pricing />
 
       {/* <h1 className="text-primary">GodsChildId</h1>
 
