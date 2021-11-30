@@ -2,12 +2,13 @@ import React from 'react'
 import { useUser } from '../lib/hooks'
 import { useRouter } from 'next/router'
 import Layout from '../components/layout'
+import { useAppContext } from '../lib/context/userstate'
 
 
 export default function Success() {
 
     const [session, setsession] = React.useState([])
-    const user = useUser({ redirectTo: '/login' })
+    const user = useAppContext()
     const router = useRouter()
     const sessionid = router.query.session_id
 
@@ -45,7 +46,7 @@ export default function Success() {
 
                 let sessionbody = {
                     customer_id: session.session.customer.id,
-                    id: user.id
+                    id: user.user.id
                 }
                 console.log(sessionbody)
 
