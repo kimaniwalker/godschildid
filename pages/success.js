@@ -44,7 +44,8 @@ export default function Success() {
                 setsession(session)
 
                 let sessionbody = {
-                    customer_id: session.session.customer.id
+                    customer_id: session.session.customer.id,
+                    id: user.id
                 }
                 console.log(sessionbody)
 
