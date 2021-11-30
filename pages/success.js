@@ -7,6 +7,7 @@ export default function Success() {
 
     const [session, setsession] = React.useState([])
     const user = useUser({ redirectTo: '/login' })
+    const myuser = useAppContext()
     const router = useRouter()
     const sessionid = router.query.session_id
 
@@ -45,9 +46,9 @@ export default function Success() {
 
                 let sessionbody = {
                     customer_id: session.session.customer.id,
-                    id: user.id
+                    id: myuser.user.id
                 }
-                console.log(body)
+                console.log(sessionbody)
 
                 try {
                     const res = await fetch(`/api/payments/savecustomerid`, {
