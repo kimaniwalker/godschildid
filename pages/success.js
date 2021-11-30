@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 export default function Success() {
 
     const [session, setsession] = React.useState([])
-    //const user = useUser({ redirectTo: '/login' })
+    const user = useUser({ redirectTo: '/login' })
     const router = useRouter()
     const sessionid = router.query.session_id
 
