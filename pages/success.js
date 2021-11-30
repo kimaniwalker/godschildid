@@ -43,30 +43,30 @@ export default function Success() {
                 console.log(session)
                 setsession(session)
 
-
-                let sessionbody = {
-                    customer_id: session.session.customer.id,
-                    id: user.id
-                }
-                console.log(sessionbody)
-
-                /*  try {
-                     const res = await fetch(`/api/payments/savecustomerid`, {
-                         method: 'POST',
-                         headers: { 'Content-Type': 'application/json' },
-                         body: JSON.stringify(sessionbody),
-                     })
-                     if (res.status === 200) {
-                         const results = await res.json()
-                         console.log(results)
- 
-                     } else {
-                         throw new Error(await res.text())
-                     }
-                 } catch (error) {
-                     console.error('An unexpected error happened occurred:', error)
- 
-                 } */
+                /*
+                                let sessionbody = {
+                                    customer_id: session.session.customer.id,
+                                    id: user.id
+                                }
+                                console.log(sessionbody)
+                
+                                 try {
+                                    const res = await fetch(`/api/payments/savecustomerid`, {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify(sessionbody),
+                                    })
+                                    if (res.status === 200) {
+                                        const results = await res.json()
+                                        console.log(results)
+                
+                                    } else {
+                                        throw new Error(await res.text())
+                                    }
+                                } catch (error) {
+                                    console.error('An unexpected error happened occurred:', error)
+                
+                                } */
 
 
             } else {
