@@ -43,6 +43,11 @@ export default function Success() {
                 console.log(session)
                 setsession(session)
 
+                let sessionbody = {
+                    customer_id: session.session.customer.id
+                }
+                console.log(sessionbody)
+
                 /*
                                 let sessionbody = {
                                     customer_id: session.session.customer.id,
