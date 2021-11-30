@@ -11,15 +11,15 @@ export default function Success() {
     const sessionid = router.query.session_id
 
 
-    /* React.useEffect(() => {
-        if(!sessionid) {
+    React.useEffect(() => {
+        if (!sessionid) {
             return;
         } else {
-           getsession() 
+            getsession()
         }
-        
 
-    }, [sessionid]) */
+
+    }, [sessionid])
 
 
 
