@@ -26,6 +26,7 @@ export default function Success() {
 
 
     const getsession = async () => {
+        let userid = user.user.id
 
         let body = {
             sessionid: sessionid
@@ -46,7 +47,7 @@ export default function Success() {
 
                 let sessionbody = {
                     customer_id: session.session.customer.id,
-                    id: user.user.id
+                    id: userid
                 }
                 console.log(sessionbody)
 
