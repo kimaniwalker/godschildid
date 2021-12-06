@@ -1,14 +1,12 @@
 import React from 'react'
-import { useUser } from '../lib/hooks'
 import { useRouter } from 'next/router'
-import Layout from '../components/layout'
-import { useAppContext } from '../lib/context/userstate'
+import Success from '../components/success'
 
 
-export default function Success() {
+export default function SuccessPage() {
 
     const [session, setsession] = React.useState([])
-    const user = useAppContext()
+
     const router = useRouter()
     const sessionid = router.query.session_id
 
@@ -26,7 +24,6 @@ export default function Success() {
 
 
     const getsession = async () => {
-        let userid = user.user.id
 
         let body = {
             sessionid: sessionid
@@ -47,34 +44,9 @@ export default function Success() {
 
                 let sessionbody = {
                     customer_id: session.session.customer.id,
-                    id: userid
+
                 }
                 console.log(sessionbody)
-
-                /*
-                                let sessionbody = {
-                                    customer_id: session.session.customer.id,
-                                    id: user.id
-                                }
-                                console.log(sessionbody)
-                
-                                 try {
-                                    const res = await fetch(`/api/payments/savecustomerid`, {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify(sessionbody),
-                                    })
-                                    if (res.status === 200) {
-                                        const results = await res.json()
-                                        console.log(results)
-                
-                                    } else {
-                                        throw new Error(await res.text())
-                                    }
-                                } catch (error) {
-                                    console.error('An unexpected error happened occurred:', error)
-                
-                                } */
 
 
             } else {
@@ -93,12 +65,7 @@ export default function Success() {
 
     return (
         <>
-            <Layout>
-                <h2>Thank You For Subscribing</h2>
-                <h5>Get Started Adding Your Children</h5>
-
-
-            </Layout>
+            <Success session={session} />
 
 
         </>

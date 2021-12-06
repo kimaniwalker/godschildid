@@ -152,7 +152,7 @@ export default function Childcard({ child, flier }) {
                         </div> : null}
                         {flier ? <div className="row">
                             <div class="mb-3">
-                                <button className="btn btn-primary" onClick={handleCreateFlier}>Transform Into Flier</button>
+                                <button className="btn btn-success" onClick={handleCreateFlier}>Transform Into Flier</button>
                             </div>
                         </div> : null}
                     </> : null}

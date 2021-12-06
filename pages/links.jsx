@@ -36,9 +36,9 @@ export default function Links(props) {
                         <a>What is Stranger Danger?</a>
                     </Link>
                 </div>
-                <div className="row justify-content-end p-5 d-flex">
+                <div className="row justify-content-end py-5 d-flex">
 
-                    <iframe width="75%" height="300" src="https://www.youtube.com/embed/SY7RhBszp0k" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <iframe width="75%" height="300" src="https://www.youtube.com/embed/SY7RhBszp0k" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowFullScreen></iframe>
 
                 </div>
                 <p>Helping a teenager to be aware of their surroundings and how to be safe</p>

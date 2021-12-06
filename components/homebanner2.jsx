@@ -49,7 +49,7 @@ export default function Homebanner2(props) {
                     <div className="col-xl-6 col-md-6 col-sm-12 col-xs-12 align-items-center">
 
                         <div className="row text-center">
-                            <h3 id={styles.title}>For Information Or Instructions, Play Video</h3>
+                            <h3 id={styles.title}>Introductory Video</h3>
                         </div>
 
                         <div className="row justify-content-end p-5 d-flex">

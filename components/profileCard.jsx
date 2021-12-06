@@ -9,7 +9,7 @@ export default function Profilecard(props) {
             <div class="card mb-3" >
                 <div class="row g-0">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-                        <div className="row justify-content-center align-items-center h-100 text-primary bg-light">
+                        <div className="row justify-content-center align-items-center h-100 w-100 p-0 m-0 text-primary bg-light">
                             {props.image}
                         </div>
 
