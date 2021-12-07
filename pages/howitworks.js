@@ -6,7 +6,7 @@ export default function Howitworks(props) {
 
     return (
         <>
-            <Layout>
+            <Layout title='How It Works' description='At God’s Child ID we have strived to make everything simple and easy. This includes signing up to become a member, adding information about your children and being able to quickly share that information to Law Enforcement etc. Below are the steps you will need to take to get started.'>
                 <h2 className="py-3">How It Works</h2>
                 <p>At God’s Child ID we have strived to make everything simple and easy. This includes signing up to become a member, adding information about your children and being able to quickly share that information to Law Enforcement etc. Below are the steps you will need to take to get started.</p>
                 <ol>

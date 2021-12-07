@@ -51,7 +51,7 @@ const Login = () => {
   }
 
   return (
-    <Layout>
+    <Layout title='Login'>
       <div className="login">
         <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />
       </div>

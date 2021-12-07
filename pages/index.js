@@ -9,7 +9,7 @@ const Home = () => {
   const user = useUser()
 
   return (
-    <Layoutfull>
+    <Layoutfull title='Gods Child ID' description='Gods Child ID is a faith-based company created by a parent just like you. The need for an online ID Kit which can be updated as your children grow is really a must especially in the times, we now live in. Add to this the speed in which a child’s information can be texted or emailed to law enforcement and shared with others via social media is a huge advantage compared to the ID Kits that have been given to parents in the past.'>
       <Homebanner2 />
       <Homebanner />
       <Pricing />

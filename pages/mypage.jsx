@@ -50,7 +50,7 @@ export default function Mypage(props) {
 
     return (
         <>
-            <Layoutfull>
+            <Layoutfull title='Childrens Page'>
                 {status.status === 'active' ? <>{children ? <div class="card-group">
                     <div className="row p-5 g-4 m-3">
 

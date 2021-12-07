@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import Footer from './footer'
 import Header from './header'
 
 const Layout = (props) => (
   <>
     <Head>
-      <title>Gods Child Id</title>
+      <title>{props.title}</title>
+      <meta name={props.title} content={props.description}></meta>
     </Head>
 
     <Header />

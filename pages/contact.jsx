@@ -37,7 +37,7 @@ export default function Contact(props) {
 
     return (
         <>
-            <Layout>
+            <Layout title='Contact Us' description='Get In Touch With Us Today'>
                 <h1 className="py-4 my-2">Get In Touch</h1>
                 <form onSubmit={handleSubmit}>
                     <div class="mb-3">

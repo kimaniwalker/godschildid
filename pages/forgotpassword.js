@@ -6,11 +6,11 @@ import ForgotPassword from '../components/forgotpassword'
 
 export default function Forgotpassword() {
   useUser({ redirectTo: '/', redirectIfFound: true })
-  
+
   const [errorMsg, setErrorMsg] = React.useState('')
 
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (errorMsg) setErrorMsg('')
@@ -19,7 +19,7 @@ export default function Forgotpassword() {
       to: e.currentTarget.email.value,
       content: `<a href=\"http://localhost:3000/passwordreset?username=${e.currentTarget.email.value}\">Here is your super secret magical link to reset your password.</a>`,
       subject: 'Reset Your Password'
-      
+
     }
 
     try {
@@ -32,7 +32,7 @@ export default function Forgotpassword() {
         const user = await res.json()
         console.log(user)
         Router.push('/')
-        
+
       } else {
         throw new Error(await res.text())
       }
@@ -43,7 +43,7 @@ export default function Forgotpassword() {
   }
 
   return (
-    <Layout>
+    <Layout title='Forgot Password'>
       <div className="login">
         <ForgotPassword errorMessage={errorMsg} onSubmit={handleSubmit} />
       </div>

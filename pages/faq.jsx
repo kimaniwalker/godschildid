@@ -6,7 +6,7 @@ export default function Faq(props) {
 
     return (
         <>
-            <Layout>
+            <Layout title='FAQ'>
                 <h1 className="py-4 my-2">Frequently Asked Questions</h1>
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">

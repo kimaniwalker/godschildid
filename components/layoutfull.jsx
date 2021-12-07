@@ -5,7 +5,8 @@ import Header from './header'
 const Layoutfull = (props) => (
   <>
     <Head>
-      <title>Gods Child Id</title>
+      <title>{props.title}</title>
+      <meta name={props.title} content={props.description}></meta>
     </Head>
 
     <Header />

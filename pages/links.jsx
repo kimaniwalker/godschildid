@@ -7,7 +7,7 @@ export default function Links(props) {
 
     return (
         <>
-            <Layout>
+            <Layout title='Important Links'>
                 <h1 className="my-2 py-4">Important Links</h1>
                 <p>Important Links is a work in progress, and we welcome your input. If you identify a website or article, you think would be helpful in keeping our children safe and healthy, please send it via our email address at <a href="mailto: support@GodsChildID.com">support@GodsChildID.com</a> and also share it on our Facebook page, God’s Child ID. Below are some important links I encourage you view.</p>
                 <p>Find out who may live in your area that has been formally convicted of a sexual felony.</p>

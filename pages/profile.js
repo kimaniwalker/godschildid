@@ -16,7 +16,7 @@ const Profile = () => {
 
 
   return (
-    <Layout>
+    <Layout title='Profile Page'>
 
       {user && (
         <>

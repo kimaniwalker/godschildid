@@ -22,9 +22,11 @@ const Signup = () => {
     }
 
     if (body.password !== e.currentTarget.rpassword.value) {
-      setErrorMsg(`The passwords don't match`)
+      setErrorMsg(`The passwords don't match or is not at least 8 charachters`)
       return
     }
+
+
 
     try {
       const res = await fetch('/api/auth/signup', {
@@ -48,7 +50,7 @@ const Signup = () => {
   return (
 
 
-    <Layout>
+    <Layout title='Signup'>
 
       <div className="login">
         <Form isLogin={false} errorMessage={errorMsg} onSubmit={handleSubmit} />

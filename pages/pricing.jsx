@@ -7,7 +7,7 @@ export default function PricingPage(props) {
 
     return (
         <>
-            <LayoutFull>
+            <LayoutFull title="Pricing">
                 <Pricing />
             </LayoutFull>
         </>

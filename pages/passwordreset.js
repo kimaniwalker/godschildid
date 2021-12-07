@@ -10,7 +10,7 @@ export default function Passwordreset(props) {
     const [confirmpassword, setconfirmpassword] = React.useState('')
     const [errmsg, seterrmsg] = React.useState('')
     const router = useRouter()
-    
+
     const hanldeSubmit = async (e) => {
         e.preventDefault()
 
@@ -51,7 +51,7 @@ export default function Passwordreset(props) {
 
     return (
         <>
-            <Layout>
+            <Layout title='Password Reset'>
                 <form onSubmit={hanldeSubmit}>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
