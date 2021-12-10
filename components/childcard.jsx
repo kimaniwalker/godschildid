@@ -14,7 +14,6 @@ export default function Childcard({ child, flier }) {
     const [info, setInfo] = React.useState('')
     const [edit, setEdit] = React.useState(true)
     const [age, setAge] = React.useState(child.dob.split("-"))
-
     const router = useRouter()
 
 
@@ -40,16 +39,7 @@ export default function Childcard({ child, flier }) {
         return Math.abs(age_dt.getUTCFullYear() - 1970);
     }
 
-    const printDiv = (divName) => {
-        var printContents = document.getElementById(divName).innerHTML;
-        var originalContents = document.body.innerHTML;
 
-        document.body.innerHTML = printContents;
-
-        window.print();
-
-        document.body.innerHTML = originalContents;
-    }
 
     return (
         <>

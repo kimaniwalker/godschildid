@@ -9,6 +9,7 @@ const Signup = () => {
   useUser({ redirectTo: '/', redirectIfFound: true })
 
   const [errorMsg, setErrorMsg] = useState('')
+  const [username, setUsername] = useState('')
   const success = () => toast.success("Success");
 
   async function handleSubmit(e) {
@@ -29,6 +30,7 @@ const Signup = () => {
 
 
     try {
+      setUsername(e.currentTarget.username.value)
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -36,6 +38,10 @@ const Signup = () => {
       })
       if (res.status === 200) {
         success()
+
+
+
+
         Router.push("/login")
 
       } else {
@@ -46,6 +52,8 @@ const Signup = () => {
       setErrorMsg(error.message)
     }
   }
+
+
 
   return (
 
