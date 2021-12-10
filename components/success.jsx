@@ -17,6 +17,7 @@ export default function Success({ session }) {
         let sessionbody = {
             customer_id: session.session.customer.id,
             phone,
+            address,
             id: user.id
         }
         console.log(sessionbody)
@@ -67,7 +68,7 @@ export default function Success({ session }) {
                     </div>
                     <div class="form-group my-2">
                         <label for="exampleInputPassword1">Address</label>
-                        <input onChange={(e) => setAddress(e.target.value)} type="password" class="form-control" id="exampleInputPassword1" />
+                        <input onChange={(e) => setAddress(e.target.value)} type="text" class="form-control" id="exampleInputPassword1" />
                     </div>
 
 
