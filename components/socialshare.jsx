@@ -7,7 +7,6 @@ import { useAppContext } from '../lib/context/userstate'
 export default function Socialshare({ pathname }) {
 
 
-
     const facebookshare = 'https://www.facebook.com/sharer/sharer.php?u=https%3A//godschildid.com' + pathname
     const user = useAppContext()
 
@@ -91,12 +90,14 @@ export default function Socialshare({ pathname }) {
                         <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
                     </svg></span></a>
 
+                    {user.user && (
+                        <a style={{ cursor: "pointer" }} onClick={sendText}><span><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-phone-fill mx-2 text-primary" viewBox="0 0 16 16">
+                            <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z" />
+                        </svg></span></a>
+                    )}
 
-                    <a style={{ cursor: "pointer" }} onClick={sendText}><span><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-phone-fill mx-2 text-primary" viewBox="0 0 16 16">
-                        <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z" />
-                    </svg></span></a>
 
-                    {user && (
+                    {user.user && (
                         <a href={`mailto:${user.user.username}?subject=Gods Child Flier&body=https://www.godschildid.com${emailpath}`} target="_blank"><span><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-envelope-fill mx-2 text-primary" viewBox="0 0 16 16">
                             <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
                         </svg></span></a>
