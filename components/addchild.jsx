@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Router from 'next/router'
-
+import { toast } from 'react-toastify';
 
 export default function Addchild({ user }) {
 
@@ -20,11 +20,14 @@ export default function Addchild({ user }) {
     const [errormsg, setErrormsg] = React.useState('')
     const [image, setImage] = React.useState('')
 
+    const success = () => toast.success("Success");
+    const toasterror = () => toast.error("There was an error");
+
     const handleupload = async (e) => {
         e.preventDefault()
         var formdata = new FormData();
         formdata.append("file", image);
-        formdata.append("upload_preset", "godschild");
+        formdata.append("upload_preset", "gods-child");
 
         var requestOptions = {
             method: 'POST',
@@ -32,7 +35,7 @@ export default function Addchild({ user }) {
             redirect: 'follow'
         };
 
-        fetch("https://api.cloudinary.com/v1_1/lokiddo/auto/upload", requestOptions)
+        fetch("https://api.cloudinary.com/v1_1/gods-child-id/auto/upload", requestOptions)
             .then(response => response.text())
             .then(result => {
                 let img = JSON.parse(result)
@@ -73,7 +76,8 @@ export default function Addchild({ user }) {
             if (res.status === 200) {
                 const session = await res.json()
                 console.log(session)
-                Router.push('/')
+                success()
+
 
             } else {
                 throw new Error(await res.text())
@@ -81,6 +85,7 @@ export default function Addchild({ user }) {
         } catch (error) {
             console.error('An unexpected error happened occurred:', error)
             setErrormsg(error.message)
+            toasterror()
         }
     }
 

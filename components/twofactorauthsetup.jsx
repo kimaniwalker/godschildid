@@ -1,5 +1,6 @@
 import React from 'react'
 import Router from 'next/router'
+import { toast } from 'react-toastify'
 
 
 export default function Twofactorauthsetup({ user }) {
@@ -10,6 +11,8 @@ export default function Twofactorauthsetup({ user }) {
     const [errmessage, seterrmsg] = React.useState('')
     const [enabled, setenabled] = React.useState(null)
     const [render, setrender] = React.useState('')
+    const success = () => toast.success("Success");
+    const toasterror = () => toast.error("There was an error");
 
 
     React.useEffect(() => {
@@ -33,7 +36,7 @@ export default function Twofactorauthsetup({ user }) {
 
             if (emailcheckbox && user.auth === 'email') {
                 document.getElementById("emailcheckbox").checked = true
-            } else  {
+            } else {
                 setrender(true)
             }
 
@@ -68,6 +71,7 @@ export default function Twofactorauthsetup({ user }) {
                 if (res.status === 200) {
                     const session = await res.json()
                     console.log(session)
+                    success()
 
 
                 } else {
@@ -76,6 +80,7 @@ export default function Twofactorauthsetup({ user }) {
             } catch (error) {
                 console.error('An unexpected error happened occurred:', error)
                 seterrmsg(error.message)
+                toasterror()
 
             }
 

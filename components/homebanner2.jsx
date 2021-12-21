@@ -52,13 +52,11 @@ export default function Homebanner2(props) {
                             <h3 id={styles.title}>Introductory Video</h3>
                         </div>
 
-                        <div className="row justify-content-end p-5 d-flex">
+                        <div className="row justify-content-end py-2 d-flex">
 
-                            <iframe src="https://player.vimeo.com/video/655122687?h=9f378da97b" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://player.vimeo.com/video/655122687?h=9f378da97b" width="640" height="360" frameBorder="0" allowFullScreen></iframe>
 
                         </div>
-
-
 
 
                     </div>

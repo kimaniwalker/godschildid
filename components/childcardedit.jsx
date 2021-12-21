@@ -17,7 +17,7 @@ export default function Childcardedit({ child }) {
 
         var formdata = new FormData();
         formdata.append("file", image);
-        formdata.append("upload_preset", "godschild");
+        formdata.append("upload_preset", "gods-child");
 
         var requestOptions = {
             method: 'POST',
@@ -25,7 +25,7 @@ export default function Childcardedit({ child }) {
             redirect: 'follow'
         };
 
-        fetch("https://api.cloudinary.com/v1_1/lokiddo/auto/upload", requestOptions)
+        fetch("https://api.cloudinary.com/v1_1/gods-child-id/auto/upload", requestOptions)
             .then(response => response.text())
             .then(result => {
                 let img = JSON.parse(result)
