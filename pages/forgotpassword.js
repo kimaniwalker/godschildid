@@ -17,7 +17,7 @@ export default function Forgotpassword() {
 
     const body = {
       to: e.currentTarget.email.value,
-      content: `<a href=\"http://localhost:3000/passwordreset?username=${e.currentTarget.email.value}\">Here is your super secret magical link to reset your password.</a>`,
+      content: `<a href=\"https://www.godschildid.com/passwordreset?username=${e.currentTarget.email.value}\">Here is your super secret magical link to reset your password.</a>`,
       subject: 'Reset Your Password'
 
     }

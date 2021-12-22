@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.STRIPESKTST);
+const stripe = require('stripe')(process.env.STRIPESKLIVE);
 const DOMAIN = 'https://www.godschildid.com';
 const TEST_DOMAIN = 'http://localhost:3000/'
 

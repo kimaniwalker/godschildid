@@ -5,7 +5,7 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
 
     <label>
       <span>Email</span>
-      <input type="text" name="username" required />
+      <input type="email" name="username" required />
     </label>
     <label>
       <span>Password</span>
