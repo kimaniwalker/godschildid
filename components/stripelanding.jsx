@@ -17,13 +17,13 @@ export default function Stripelanding(props) {
 
                         <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                             <Subscriptioncard title="Monthly Fee" price="$6.95 / month" detail="Pay a one time fee of $12 and $6.95 monthly afterwards. Discontinue Anytime" button={<Stripesetup user={user} line_items={[
-                                { price: 'price_1JwEgjEnwU3PfkMh9IJsNEPc', quantity: 1 },
-                                { price: 'price_1JwEfUEnwU3PfkMhCfckX2YV', quantity: 1 },
+                                { price: 'price_1JuhdlEnwU3PfkMhY6923H2F', quantity: 1 },
+                                { price: 'price_1JwEcuEnwU3PfkMh8Lrw5Blw', quantity: 1 },
                             ]} />} />
                         </div>
                         <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                             <Subscriptioncard title="Annual Fee" price="$79.60 / year" detail="Pay a one time fee of $79.60 for a full year of coverage saving you 10%." button={<Stripesetup user={user} line_items={[
-                                { price: 'price_1JwEgCEnwU3PfkMhFPWroqX3', quantity: 1 },
+                                { price: 'price_1JwEZXEnwU3PfkMhb5MDEaNj', quantity: 1 },
 
                             ]} />} />
                         </div>
