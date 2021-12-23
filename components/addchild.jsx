@@ -111,7 +111,7 @@ export default function Addchild({ user }) {
 
                     </div>
                     <div class="mb-3">
-                        <label for="Dateofbirth" class="form-label">Date Of Birth</label>
+                        <label for="Dateofbirth" class="form-label">Date Of Birth (yyyy-mm-dd)</label>
 
                         <DatePicker dateFormat="yyyy-MM-dd" selected={dob} onChange={(date) => setDob(date)} />
                     </div>
