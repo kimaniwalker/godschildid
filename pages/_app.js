@@ -80,16 +80,7 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         <ToastContainer />
       </UserWrapper>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossOrigin="anonymous"></script>
 
-
-
-      {/* <!-- Google Tag Manager (noscript) --> */}
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXL2KDF"
-        height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
-
-      <script> var _ctct_m = "da600927952cfd2a393b1b5878cb891e"; </script>
-      <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
 
 
 
