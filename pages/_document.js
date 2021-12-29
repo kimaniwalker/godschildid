@@ -16,10 +16,7 @@ class MyDocument extends Document {
                     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXL2KDF"
                         height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
 
-                    {/* <!-- Begin Constant Contact Active Forms --> */}
-                    <script> var _ctct_m = "da600927952cfd2a393b1b5878cb891e"; </script>
-                    <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
-                    {/* <!-- End Constant Contact Active Forms --> */}
+
                 </body>
             </Html>
         )
