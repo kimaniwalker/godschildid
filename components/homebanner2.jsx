@@ -54,7 +54,7 @@ export default function Homebanner2(props) {
 
                         <div className="row justify-content-end py-2 d-flex">
 
-                            <iframe src="https://player.vimeo.com/video/655122687?h=9f378da97b" width="640" height="360" frameBorder="0" fullscreen picture-in-picture allowFullScreen></iframe>
+                            <iframe style={{ display: 'block' }} src="https://player.vimeo.com/video/655122687?h=9f378da97b" width="640" height="360" frameBorder="0" allowFullScreen></iframe>
 
                         </div>
 
