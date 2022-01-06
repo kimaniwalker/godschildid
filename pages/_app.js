@@ -48,7 +48,7 @@ export default function MyApp({ Component, pageProps }) {
 
         <meta name="facebook-domain-verification" content="u5vy1hkmzr8jsgf8w2e7lk5lfqpbsm" />
 
-        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+        {/* <!-- Global site tag (gtag.js) - Google Analytics --> 
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5X25C7LM8R"></script>
         <script dangerouslySetInnerHTML={{
           __html: `
@@ -61,8 +61,9 @@ export default function MyApp({ Component, pageProps }) {
         }} >
 
         </script>
+        */}
 
-        {/* <!-- Google Tag Manager --> */}
+        {/* <!-- Google Tag Manager --> 
         <script dangerouslySetInnerHTML={{
           __html: `
             (function(w,d,s,l,i){w[l] = w[l] || [];w[l].push({'gtm.start':
@@ -73,6 +74,7 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         }} >
 
         </script>
+        */}
 
       </Head>
       <UserWrapper>
