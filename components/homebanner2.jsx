@@ -1,6 +1,5 @@
 import React from 'react'
 import { useAppContext } from '../lib/context/userstate'
-import styles from '../styles/css/homebanner2.module.css'
 import Form from './form'
 import Router from 'next/router'
 
@@ -44,32 +43,32 @@ export default function Homebanner2(props) {
 
     return (
         <>
-            <div id={styles.bannercontainer} className="container-fluid p-0 m-0">
-                <div id={styles.bannercontent} className="row p-5">
-                    <div className="col-xl-6 col-md-6 col-sm-12 col-xs-12 align-items-center">
 
-                        <div className="row text-center">
-                            <h3 className='py-2'>Introductory Video</h3>
-                            <iframe src="https://player.vimeo.com/video/655122687?h=9f378da97b" width="640" height="360" frameBorder="0" allowFullScreen></iframe>
-                        </div>
+            <div className="row p-5">
+                <div className="col-xl-6 col-md-6 col-sm-12 col-xs-12 align-items-center">
 
-
-
-
+                    <div className="row text-center">
+                        <h3 className='py-2'>Introductory Video</h3>
+                        <iframe src="https://player.vimeo.com/video/655122687?h=9f378da97b" width="640" height="360" frameBorder="0" allowFullScreen></iframe>
                     </div>
-                    <div className="col-xl-6 col-md-6 col-sm-12 col-xs-12 align-items-center">
-
-                        <div className="row mb-4 mx-5">
-                            {user.user ? null : <><div className="row py-2 mb-4">
-                                <h3 className="text-secondary">Sign Up Or Login</h3>
-                            </div><Form isLogin={false} errorMessage={errorMsg} onSubmit={handleSubmit} /></>}
-                        </div>
 
 
-                    </div>
+
+
                 </div>
+                <div className="col-xl-6 col-md-6 col-sm-12 col-xs-12 align-items-center">
 
+                    <div className="row mb-4 mx-5">
+                        {user.user ? null : <><div className="row py-2 mb-4">
+                            <h3 className="text-secondary">Sign Up Or Login</h3>
+                        </div><Form isLogin={false} errorMessage={errorMsg} onSubmit={handleSubmit} /></>}
+                    </div>
+
+
+                </div>
             </div>
+
+
 
         </>
     )
