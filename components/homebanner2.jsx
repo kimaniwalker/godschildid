@@ -49,14 +49,11 @@ export default function Homebanner2(props) {
                     <div className="col-xl-6 col-md-6 col-sm-12 col-xs-12 align-items-center">
 
                         <div className="row text-center">
-                            <h3 id={styles.title}>Introductory Video</h3>
+                            <h3 className='py-2'>Introductory Video</h3>
+                            <iframe src="https://player.vimeo.com/video/655122687?h=9f378da97b" width="640" height="360" frameBorder="0" allowFullScreen></iframe>
                         </div>
 
-                        <div className="row justify-content-end py-2 d-flex">
 
-                            <iframe style={{ display: 'block' }} src="https://player.vimeo.com/video/655122687?h=9f378da97b" width="640" height="360" frameBorder="0" allowFullScreen></iframe>
-
-                        </div>
 
 
                     </div>
