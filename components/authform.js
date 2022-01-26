@@ -42,7 +42,6 @@ const AuthForm = ({ errorMessage, onSubmit }) => (
       .submit > button {
         padding: 0.5rem 1rem;
         cursor: pointer;
-        background: #fff;
         border: 1px solid #ccc;
         border-radius: 4px;
       }
