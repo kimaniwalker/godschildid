@@ -1,21 +1,21 @@
 import Link from 'next/link'
 
 const AuthForm = ({ errorMessage, onSubmit }) => (
-    <form onSubmit={onSubmit}>
-        <label>
-            <span>6 Digit Code</span>
-            <input type="text" name="authcode" required />
-        </label>
+  <form onSubmit={onSubmit}>
+    <label>
+      <span>6 Digit Code</span>
+      <input type="text" name="authcode" required />
+    </label>
 
-        <div className="submit">
+    <div className="submit">
 
-            <button type="submit">Submit</button>
+      <button className='btn btn-primary w-100' type="submit">Submit</button>
 
-        </div>
+    </div>
 
-        {errorMessage && <p className="error">{errorMessage}</p>}
+    {errorMessage && <p className="error">{errorMessage}</p>}
 
-        <style jsx>{`
+    <style jsx>{`
       form,
       label {
         display: flex;
@@ -54,7 +54,7 @@ const AuthForm = ({ errorMessage, onSubmit }) => (
         margin: 1rem 0 0;
       }
     `}</style>
-    </form>
+  </form>
 )
 
 export default AuthForm
