@@ -42,7 +42,7 @@ export default function Stripebilling({ user }) {
     if (!user.customer_id) {
         return (
             <>
-                <button className="btn btn-primary w-100" onClick={handleStripe}>Sign Up</button>
+                <button className="btn btn-success w-100" onClick={handleStripe}>Pay & Manage Subscription</button>
             </>)
     } else {
         return (

@@ -5,6 +5,7 @@ import Socialshare from './socialshare'
 import Router from 'next/router'
 import Image from 'next/image'
 import logo from '../assets/logo.svg'
+import { toast } from 'react-toastify'
 
 
 export default function Childcard({ child, flier }) {
@@ -15,6 +16,9 @@ export default function Childcard({ child, flier }) {
     const [edit, setEdit] = React.useState(true)
     const [age, setAge] = React.useState(child.dob.split("-"))
     const router = useRouter()
+
+    const success = () => toast.success("Success, now refresh the page");
+    const toasterror = () => toast.error("There was an error");
 
 
     React.useEffect(() => {
@@ -37,6 +41,34 @@ export default function Childcard({ child, flier }) {
         var age_dt = new Date(diff_ms);
 
         return Math.abs(age_dt.getUTCFullYear() - 1970);
+    }
+
+    const deleteChild = async () => {
+        let body = {
+            id: child.id
+        }
+
+        try {
+            const res = await fetch('/api/children/removechild', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+            })
+            if (res.status === 200) {
+                const session = await res.json()
+                console.log(session)
+                success()
+                Router.push('/mypage')
+
+
+
+            } else {
+                throw new Error(await res.text())
+            }
+        } catch (error) {
+            console.error('An unexpected error happened occurred:', error)
+            toasterror()
+        }
     }
 
 
@@ -166,10 +198,11 @@ export default function Childcard({ child, flier }) {
                     </div> :
                     <div className="card-footer bg-primary">
                         <div className="row text-center text-secondary">
-                            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
-                                <Link href={`/children/${child.id}`}>
-                                    <a className="text-secondary">Browse</a>
+                            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 text-secondary">
+                                <Link href={`/mypage`}>
+                                    <a onClick={deleteChild} className="text-secondary">Delete</a>
                                 </Link>
+
                             </div>
                             <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                                 <Link href={`/children/flier/${child.id}`}>
