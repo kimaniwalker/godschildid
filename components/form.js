@@ -50,7 +50,7 @@ const Form = ({ isLogin, errorMessage, onSubmit }) => (
           </Link>
 
 
-          <button className="btn btn-primary" type="submit">Next</button>
+          <button className="btn btn-success" type="submit">Next</button>
 
 
 
