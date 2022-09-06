@@ -11,7 +11,7 @@ export default function Howitworks(props) {
                 <p>At God’s Child ID we have strived to make everything simple and easy. This includes signing up to become a member, adding information about your children and being able to quickly share that information to Law Enforcement etc. Below are the steps you will need to take to get started.</p>
                 <ol>
                     <li>Register for a new account on our <a href="/signup">signup</a> page.</li>
-                    <li>Once you have logged in, you will be directed to the settings page where you can signup for your subscription. You are allowed to either pay in full for one year or set it up into monthly payments. See our pricing <a href="/pricing">page</a> for more information.</li>
+                    <li>Once you have logged in, you will be directed to the settings page where you will be directed to enter your access code. Enter your access code and click save. If your code is entered correctly , you will be granted full access. <b>You may need to refresh your screen for changes to take effect.</b></li>
                     <li>Setup two factor authentication to enable additional security measures via email or text keeping your childrens information safe and secure.</li>
                     <li>You will receive an email from God’s Child ID three times a year reminding you to update your children’s information.</li>
                 </ol>
