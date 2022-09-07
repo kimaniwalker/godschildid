@@ -6,6 +6,7 @@ import Router from 'next/router'
 import Image from 'next/image'
 import logo from '../assets/logo.svg'
 import { toast } from 'react-toastify'
+import styles from '../styles/css/childCard.module.css'
 
 
 export default function Childcard({ child, flier }) {
@@ -97,7 +98,7 @@ export default function Childcard({ child, flier }) {
                 <div class="card-body">
                     <div className="row">
                         <div className="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
-                            <img src={child.image} class="card-img w-100" alt="profile pic" />
+                            <img src={child.image} class="card-img" alt="profile pic" />
                         </div>
                         <div className="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                             <div className="card-title">
