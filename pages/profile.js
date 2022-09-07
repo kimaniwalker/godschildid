@@ -5,43 +5,53 @@ import Profilecard from '../components/profileCard'
 import Twofactorauthsetup from '../components/twofactorauthsetup'
 import Link from 'next/link'
 import { useAppContext } from '../lib/context/userstate'
+import { toast } from 'react-toastify'
+import { Codes } from '../data/codes'
 
 
 const Profile = () => {
   const user = useUser({ redirectTo: '/login' })
   const [customer, setcustomer] = React.useState([])
   const [code, setCode] = React.useState('')
+  const [codeValid, setValidCode] = React.useState(false)
   const { isActive } = useAppContext()
-  const success = () => toast.success("Success");
+  const success = () => toast.success("Success. Now refresh the page.");
   const toasterror = () => toast.error("There was an error");
+  const incorrectCode = () => toast.error("Your access code is incorrect")
 
 
   const handleUpdate = async () => {
-    let body = {
-      code: code,
-      id: user.id
-    }
+    let isValid = Codes.includes(code)
 
-    try {
-      const res = await fetch(`/api/auth/updateuser`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      })
-      if (res.status === 200) {
-        const session = await res.json()
-        console.log(session)
-        success()
-
-
-      } else {
-        throw new Error(await res.text())
+    if (isValid) {
+      let body = {
+        code: code,
+        id: user.id
       }
-    } catch (error) {
-      console.error('An unexpected error happened occurred:', error)
-      toasterror()
 
+      try {
+        const res = await fetch(`/api/auth/updateuser`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        })
+        if (res.status === 200) {
+          const session = await res.json()
+          console.log(session)
+          success()
+        } else {
+          throw new Error(await res.text())
+        }
+      } catch (error) {
+        console.error('An unexpected error happened occurred:', error)
+        toasterror()
+
+      }
+    } else {
+      incorrectCode()
     }
+
+
   }
 
   return (
@@ -52,9 +62,9 @@ const Profile = () => {
           <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2zM3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H3z" />
         </svg>} link={<>
           <input className="w-100 mb-2" onChange={(e) => setCode(e.target.value)} />
-          <Link href="/children/createchild">
-            <button disabled={code.length <= 1 ? true : false} onClick={handleUpdate} className="btn btn-primary w-100 mb-2">Save</button>
-          </Link></>} />
+
+          <button disabled={code.length <= 1 ? true : false} onClick={handleUpdate} className="btn btn-primary w-100 mb-2">Save</button>
+        </>} />
       )}
 
       {user && isActive && (
