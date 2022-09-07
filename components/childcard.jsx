@@ -36,11 +36,9 @@ export default function Childcard({ child, flier }) {
 
     }
 
-    function calculate_age(dob) {
-        var diff_ms = Date.now() - dob.getTime();
-        var age_dt = new Date(diff_ms);
 
-        return Math.abs(age_dt.getUTCFullYear() - 1970);
+    function calculate_age(dob) {
+        return Math.floor((new Date() - new Date(dob).getTime()) / 3.15576e+10)
     }
 
     const deleteChild = async () => {
@@ -99,7 +97,7 @@ export default function Childcard({ child, flier }) {
                 <div class="card-body">
                     <div className="row">
                         <div className="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
-                            <img src={child.image} class="card-img" alt="profile pic" />
+                            <img src={child.image} class="card-img w-100" alt="profile pic" />
                         </div>
                         <div className="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
                             <div className="card-title">

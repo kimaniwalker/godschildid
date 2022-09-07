@@ -6,12 +6,12 @@ import { useUser } from '../lib/hooks'
 
 export default function Mypage(props) {
     const user = useUser({ redirectTo: '/login' })
-    const status = useAppContext()
+    const { isActive } = useAppContext()
     const [children, setchildren] = React.useState([])
     const [errormsg, seterrormsg] = React.useState('')
 
     React.useEffect(() => {
-        if (!user || !status.status === 'active') {
+        if (!user) {
             return
         } else {
             getChildren()
@@ -51,7 +51,7 @@ export default function Mypage(props) {
     return (
         <>
             <Layoutfull title='Childrens Page'>
-                {status.status === 'active' ? <>{children ? <div class="card-group">
+                {isActive ? <>{children ? <div class="card-group">
                     <div className="row p-5 g-4 m-3">
 
                         {children.map((child => (
@@ -66,10 +66,6 @@ export default function Mypage(props) {
                     </div>
                 </div>
                     : null}</> : <><h2 className="text-center my-5 py-5">Your subscription is not active. Please navigate to your profile page for more information.</h2></>}
-
-
-
-
 
 
             </Layoutfull>
