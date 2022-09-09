@@ -125,7 +125,7 @@ export default function Childcard({ child, flier }) {
 
 
 
-                                <p>Age: {calculate_age(new Date(age[0], age[1], age[2].substring(0, 2)))}</p>
+                                <p>Age: {calculate_age(child.dob.slice(0, 10))}</p>
                                 <p>Gender: {child.gender}</p>
                                 <p>D.O.B: {child.dob.slice(0, 10)}</p>
                                 <p>Race: {child.race}</p>
