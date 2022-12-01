@@ -5,6 +5,9 @@
     "build": "next build",
     "start": "next start -p $PORT"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@cloudinary/react": "^1.0.0-beta.11",
     "@cloudinary/url-gen": "^1.1.0",
