@@ -11,9 +11,9 @@ import styles from '../styles/css/childCard.module.css'
 
 export default function Childcard({ child, flier }) {
 
-    const [first, setFirst] = React.useState('')
-    const [last, setLast] = React.useState('')
-    const [info, setInfo] = React.useState('')
+    const [first, setFirst] = React.useState(child.first_name)
+    const [last, setLast] = React.useState(child.last_name)
+    const [info, setInfo] = React.useState(child.additional_info)
     const [edit, setEdit] = React.useState(true)
     const [age, setAge] = React.useState(child.dob.split("-"))
     const router = useRouter()
@@ -32,6 +32,12 @@ export default function Childcard({ child, flier }) {
     }, [router])
 
     const handleCreateFlier = async () => {
+        updateChild({
+            id: child.id,
+            first_name: first,
+            last_name: last,
+            additional_info: info
+        })
         Router.push(`/children/flier/${child.id}?first=${first}&last=${last}&edit=false&info=${info}`)
         // printDiv('printarea')
 
@@ -67,6 +73,29 @@ export default function Childcard({ child, flier }) {
         } catch (error) {
             console.error('An unexpected error happened occurred:', error)
             toasterror()
+        }
+    }
+
+    const updateChild = async (body) => {
+
+        try {
+
+            const res = await fetch('/api/children/updatechild', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+            })
+            if (res.status === 200) {
+                const session = await res.json()
+                console.log(session)
+
+            } else {
+                throw new Error(await res.text())
+            }
+
+
+        } catch (error) {
+            console.error('An unexpected error happened occurred:', error)
         }
     }
 
@@ -107,11 +136,11 @@ export default function Childcard({ child, flier }) {
                                 {edit ? <>
                                     {flier ? <><div class="mb-3">
                                         <label for="first" class="form-label">First Name</label>
-                                        <input onChange={(e) => setFirst(e.target.value)} type="text" class="form-control" id="first" />
+                                        <input placeholder={child.first_name} onChange={(e) => setFirst(e.target.value)} type="text" class="form-control" id="first" />
                                     </div>
                                         <div class="mb-3">
                                             <label for="last" class="form-label">Last Name</label>
-                                            <input onChange={(e) => setLast(e.target.value)} type="text" class="form-control" id="last" />
+                                            <input placeholder={child.last_name} onChange={(e) => setLast(e.target.value)} type="text" class="form-control" id="last" />
                                         </div>
                                     </> : null}
                                 </> : <>
@@ -124,7 +153,7 @@ export default function Childcard({ child, flier }) {
 
 
 
-
+                                {!edit ? <p>Unique Identifier: <b>{child.id}</b></p> : null}
                                 <p>Age: {calculate_age(child.dob.slice(0, 10))}</p>
                                 <p>Gender: {child.gender}</p>
                                 <p>D.O.B: {child.dob.slice(0, 10)}</p>
@@ -168,7 +197,7 @@ export default function Childcard({ child, flier }) {
                         {flier ? <div className="row">
                             <div class="mb-3">
                                 <label for="Height" class="form-label">Additional Information:</label>
-                                <textarea onChange={(e) => setInfo(e.target.value)} type="text" class="form-control" cols="20" id="Height" />
+                                <textarea placeholder={child.additional_info} onChange={(e) => setInfo(e.target.value)} type="text" class="form-control" cols="20" id="Height" />
                             </div>
                         </div> : null}
                         {flier ? <div className="row">
