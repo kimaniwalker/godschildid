@@ -18,7 +18,9 @@ export const Codes = [
     'JMN14',
     'jmn14',
     'CLA14',
-    'cla14'
+    'cla14',
+    'GWC45',
+    'gwc45'
 ]
 
 
